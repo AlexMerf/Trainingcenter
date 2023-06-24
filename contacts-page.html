@@ -7,25 +7,66 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.min.css">
 
-	<script src="https://lidrekon.ru/slep/js/jquery.js"></script>
-	<script src="https://lidrekon.ru/slep/js/uhpv-full.min.js"></script>
+	<link rel="stylesheet" href="css/style.min.css">
 
 	<title>Gulp Start 2023</title>
 </head>
 
 <body>
+	<section class="accessibilityPanel">
+		<div class="accessibilityPanelTitle">
+			<h3>Параметры доступности</h3>
+			<button class="accessibilityPanelClose" aria-label="закрыть Параметры доступности"
+				title="закрыть Параметры доступности">
+				<div class="accessibilityPanelCloseIcon"></div>
+			</button>
+		</div>
+		<div class="accessibilityPanelWrapper">
+			<div class="accessibilityPanelWrapperBox disabledImage">
+				<span class="accessibilityPanelWrapperBoxTitle">Изображения:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="showImg">показать</button>
+					<button class="btnMain small" id="hidedImg">скрыть</button>
+				</div>
+			</div>
+			<div class="accessibilityPanelWrapperBox latterSpacing">
+				<span class="accessibilityPanelWrapperBoxTitle">Межбуквенное расстояние:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="letterSpacingDefault">рекомендуймый</button>
+					<button class="btnMain small" id="letterSpacingLarge">большой</button>
+					<button class="btnMain small" id="letterSpacingExtraLarge">очень большой</button>
+				</div>
+			</div>
+			<div class="accessibilityPanelWrapperBox fontStyles">
+				<span class="accessibilityPanelWrapperBoxTitle">Размер шрифта:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="fontSizeDefault">рекомендуймый</button>
+					<button class="btnMain small" id="fontSizeLarge">большой</button>
+					<button class="btnMain small" id="fontSizeExtraLarge">очень большой</button>
+				</div>
+			</div>
+			<div class="accessibilityPanelWrapperBox colorSheme">
+				<span class="accessibilityPanelWrapperBoxTitle">Цветовая схема:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="colorSchemeDefault">обычная</button>
+					<button class="btnMain small" id="colorSchemeContract">контрастная</button>
+					<button class="btnMain small" id="colorSchemeInversion">инверсия</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<header class="headerMainTopBox headerMain">
 		<div class="container">
 			<div class="headerMainTop">
-				<button id="specialButton" title="Версия для слабовидящих" class="btnVeiw">
-					<img width="24" height="24" src="../images/svg/view.svg" alt="Версия для слабовидящих">
+				<button title="Версия для слабовидящих" class="btnVeiw">
+					<div class="btnVeiwImg"></div>
 					<span>Версия для слабовидящих</span>
 				</button>
 				<a class="linkInfo" href="/info-organization.html">Сведения об образовательной организации</a>
 				<a class="linkSocial linkPhone" href="#">
-					<img width="24" height="24" src="../images/svg/phone.svg" alt="Телефон иконка">
+					<div class="linkPhoneIcon"></div>
 					+7 (919)-991-00-74
 				</a>
 				<button class="btnMain btnOpenFormPopup">перезвоните мне</button>
@@ -36,7 +77,7 @@
 		<div class="container">
 			<div class="headerMainLower">
 				<a class="logo" href="/">
-					<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+					<div class="logoImg"></div>
 				</a>
 				<nav class="navigationHeader">
 					<a class="navigationItem active" href="#">о центре</a>
@@ -61,13 +102,13 @@
 	
 			<a class="logo" href="/">
 	
-				<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+				<div class="logoImg"></div>
 	
 			</a>
 	
 			<button class="closeBtnMenu closeBtnMenuJS" title="Закрыть мобильное меню" aria-label="Закрыть мобильное меню">
 	
-				<img width="21" height="21" src="../images/svg/close.svg" alt="Закрыть мобильное меню">
+				<div class="closeBtnMenuIcon"></div>
 	
 			</button>
 	
@@ -93,9 +134,9 @@
 	
 		<div class="socialMobile">
 	
-			<button id="specialButton" title="Версия для слабовидящих" class="btnVeiwMobile">
+			<button title="Версия для слабовидящих" class="btnVeiwMobile btnVeiw closeBtnMenuJS">
 	
-				<img width="24" height="24" src="../images/svg/view.svg" alt="Версия для слабовидящих">
+				<div class="btnVeiwImg"></div>
 	
 				<span>Версия для слабовидящих</span>
 	
@@ -103,7 +144,7 @@
 	
 			<a class="linkMobileSocial" href="#">
 	
-				<img width="24" height="24" src="../images/svg/email.svg" alt="Версия для слабовидящих">
+				<div class="linkMobileSocialEmailIcon"></div>
 	
 				Termin5L@yandex.ru
 	
@@ -111,7 +152,7 @@
 	
 			<a class="linkMobileSocial" href="#">
 	
-				<img width="24" height="24" src="../images/svg/phone.svg" alt="Версия для слабовидящих">
+				<div class="linkMobileSocialPhoneIcon"></div>
 	
 				+7 (919)-991-00-74
 	
@@ -186,7 +227,7 @@
 		<div class="formPopupContent">
 			<div class="formPopupContentCloseWrapper">
 				<button aria-label="Закрыть popup" title="Закрыть popup" class="formPopupCloseBtn">
-					<img src="../images/svg/close.svg" alt="Иконка закрытие popup">
+					<div class="formPopupCloseBtnIcon"></div>
 				</button>
 			</div>
 			<div class="formPopupContentTitle">
@@ -214,8 +255,8 @@
 	</article>
 	<article class="popupCookies">
 		<div class="wrapperTitle">
-			<button class="closePopupCookies btnCloseJsPopupCookies">
-				<img src="../images/svg/close.svg" alt="Close popup">
+			<button class="closePopupCookies btnCloseJsPopupCookies" aria-label="закрыть popup cookies" title="Закрыть popup">
+				<div class="closeIcon"></div>
 			</button>
 		</div>
 		<span class="popupCookiesDescr">Мы используем Cookies, чтобы пользоваться сайтом было удобней</span>
@@ -225,7 +266,7 @@
 		<div class="container">
 			<div class="content">
 				<a class="logo" href="/">
-					<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+					<div class="logoImg"></div>
 				</a>
 				<div class="wrapperFooterMain">
 					<div class="wrapperFooterMainBox">
@@ -233,8 +274,8 @@
 						<a class="wrapperFooterMainBoxItem" href="/info-organization.html">Сведения об образовательной организации</a>
 						<a class="wrapperFooterMainBoxItem" href="/jobs-page.html">Вакансии</a>
 						<a class="wrapperFooterMainBoxItem" href="/politic.html">Политика конфиденциальности</a>
-						<button id="specialButton" title="Версия для слабовидящих" class="btnVeiw btnViewFooter">
-							<img src="../images/svg/view.svg" alt="Версия для слабовидящих">
+						<button title="Версия для слабовидящих" class="btnVeiw btnViewFooter">
+							<div class="btnVeiwImg"></div>
 							<span>Версия для слабовидящих</span>
 						</button>
 					</div>

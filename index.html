@@ -7,25 +7,66 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.min.css">
 
-	<script src="https://lidrekon.ru/slep/js/jquery.js"></script>
-	<script src="https://lidrekon.ru/slep/js/uhpv-full.min.js"></script>
+	<link rel="stylesheet" href="css/style.min.css">
 
 	<title>Gulp Start 2023</title>
 </head>
 
 <body>
+	<section class="accessibilityPanel">
+		<div class="accessibilityPanelTitle">
+			<h3>Параметры доступности</h3>
+			<button class="accessibilityPanelClose" aria-label="закрыть Параметры доступности"
+				title="закрыть Параметры доступности">
+				<div class="accessibilityPanelCloseIcon"></div>
+			</button>
+		</div>
+		<div class="accessibilityPanelWrapper">
+			<div class="accessibilityPanelWrapperBox disabledImage">
+				<span class="accessibilityPanelWrapperBoxTitle">Изображения:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="showImg">показать</button>
+					<button class="btnMain small" id="hidedImg">скрыть</button>
+				</div>
+			</div>
+			<div class="accessibilityPanelWrapperBox latterSpacing">
+				<span class="accessibilityPanelWrapperBoxTitle">Межбуквенное расстояние:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="letterSpacingDefault">рекомендуймый</button>
+					<button class="btnMain small" id="letterSpacingLarge">большой</button>
+					<button class="btnMain small" id="letterSpacingExtraLarge">очень большой</button>
+				</div>
+			</div>
+			<div class="accessibilityPanelWrapperBox fontStyles">
+				<span class="accessibilityPanelWrapperBoxTitle">Размер шрифта:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="fontSizeDefault">рекомендуймый</button>
+					<button class="btnMain small" id="fontSizeLarge">большой</button>
+					<button class="btnMain small" id="fontSizeExtraLarge">очень большой</button>
+				</div>
+			</div>
+			<div class="accessibilityPanelWrapperBox colorSheme">
+				<span class="accessibilityPanelWrapperBoxTitle">Цветовая схема:</span>
+				<div class="accessibilityPanelWrapperBoxTools">
+					<button class="btnMain active small" id="colorSchemeDefault">обычная</button>
+					<button class="btnMain small" id="colorSchemeContract">контрастная</button>
+					<button class="btnMain small" id="colorSchemeInversion">инверсия</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 	<header class="headerMainTopBox headerMain">
 		<div class="container">
 			<div class="headerMainTop">
-				<button id="specialButton" title="Версия для слабовидящих" class="btnVeiw">
-					<img width="24" height="24" src="../images/svg/view.svg" alt="Версия для слабовидящих">
+				<button title="Версия для слабовидящих" class="btnVeiw">
+					<div class="btnVeiwImg"></div>
 					<span>Версия для слабовидящих</span>
 				</button>
 				<a class="linkInfo" href="/info-organization.html">Сведения об образовательной организации</a>
 				<a class="linkSocial linkPhone" href="#">
-					<img width="24" height="24" src="../images/svg/phone.svg" alt="Телефон иконка">
+					<div class="linkPhoneIcon"></div>
 					+7 (919)-991-00-74
 				</a>
 				<button class="btnMain btnOpenFormPopup">перезвоните мне</button>
@@ -36,7 +77,7 @@
 		<div class="container">
 			<div class="headerMainLower">
 				<a class="logo" href="/">
-					<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+					<div class="logoImg"></div>
 				</a>
 				<nav class="navigationHeader">
 					<a class="navigationItem active" href="#">о центре</a>
@@ -61,13 +102,13 @@
 	
 			<a class="logo" href="/">
 	
-				<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+				<div class="logoImg"></div>
 	
 			</a>
 	
 			<button class="closeBtnMenu closeBtnMenuJS" title="Закрыть мобильное меню" aria-label="Закрыть мобильное меню">
 	
-				<img width="21" height="21" src="../images/svg/close.svg" alt="Закрыть мобильное меню">
+				<div class="closeBtnMenuIcon"></div>
 	
 			</button>
 	
@@ -93,9 +134,9 @@
 	
 		<div class="socialMobile">
 	
-			<button id="specialButton" title="Версия для слабовидящих" class="btnVeiwMobile">
+			<button title="Версия для слабовидящих" class="btnVeiwMobile btnVeiw closeBtnMenuJS">
 	
-				<img width="24" height="24" src="../images/svg/view.svg" alt="Версия для слабовидящих">
+				<div class="btnVeiwImg"></div>
 	
 				<span>Версия для слабовидящих</span>
 	
@@ -103,7 +144,7 @@
 	
 			<a class="linkMobileSocial" href="#">
 	
-				<img width="24" height="24" src="../images/svg/email.svg" alt="Версия для слабовидящих">
+				<div class="linkMobileSocialEmailIcon"></div>
 	
 				Termin5L@yandex.ru
 	
@@ -111,7 +152,7 @@
 	
 			<a class="linkMobileSocial" href="#">
 	
-				<img width="24" height="24" src="../images/svg/phone.svg" alt="Версия для слабовидящих">
+				<div class="linkMobileSocialPhoneIcon"></div>
 	
 				+7 (919)-991-00-74
 	
@@ -130,7 +171,6 @@
 				<img width="1540" height="710" class="heroImageSectionBgImage" src="../images/hero.webp"
 					alt="Экран компьютера с виджетами и папкой">
 			</picture>
-		
 			<div class="content">
 				<h1>Профессиональное обучение. Повышение квалификации. Профессиональная переподготовка.</h1>
 				<button class="btnMain btnMainHero">посмотреть направления</button>
@@ -144,7 +184,7 @@
 						<img width="70" height="70" src="../images/svg/quality/1.svg" loading="lazy"
 							alt="Иконка 'квалифицированные сотрудники'">
 					</div>
-					<span class="qualitySectionItemTitle">Вас обучат квалифицированные сотрудники</span>
+					<h3 class="qualitySectionItemTitle">Вас обучат квалифицированные сотрудники</h3>
 					<p class="qualitySectionItemDescription">
 						Все учебные программы, разработанные квалифицированными специалистами, тщательно составлены с учетом последних
 						требований. Эти программы предлагают полный и глубокий обзор предметной области, обеспечивая студентам
@@ -155,7 +195,7 @@
 					<div class="qualitySectionItemIcon">
 						<img width="70" height="70" src="../images/svg/quality/2.svg" loading="lazy" alt="Иконка ноутбука">
 					</div>
-					<span class="qualitySectionItemTitle">Предлагаем обучение в дистанционной форме</span>
+					<h3 class="qualitySectionItemTitle">Предлагаем обучение в дистанционной форме</h3>
 					<p class="qualitySectionItemDescription">
 						Вы сможете проходить обучение без прерывания основной деятельности, выбирая удобное для вас время. Учебная
 						программа будет гибко адаптирована, чтобы соответствовать вашим возможностям и расписанию
@@ -165,7 +205,7 @@
 					<div class="qualitySectionItemIcon">
 						<img width="70" height="70" src="../images/svg/quality/3.svg" loading="lazy" alt="Иконка сертификата">
 					</div>
-					<span class="qualitySectionItemTitle">Предоставляем официальные документы об образовании</span>
+					<h3 class="qualitySectionItemTitle">Предоставляем официальные документы об образовании</h3>
 					<p class="qualitySectionItemDescription">
 						По окончании выбранного вами курса обучения, вам будет выдано удостоверение о повышении квалификации или диплом
 						о профессиональной переподготовке, в зависимости от программы обучения. Эти документы соответствуют
@@ -181,7 +221,7 @@
 					<div class="directionsSectionItemIcon">
 						<img width="70" height="70" loading="lazy" src="../images/svg/direction/1.svg" alt="Иконка охрана труда">
 					</div>
-					<span class="directionsSectionItemTitle">Охрана труда</span>
+					<h3 class="directionsSectionItemTitle">Охрана труда</h3>
 					<p class="directionsSectionItemDescription">Программа обучения по охране труда для руководителей и специалистов
 						организации</p>
 					<button class="btnMain btnMainDirectionItem">подробнее</button>
@@ -190,7 +230,7 @@
 					<div class="directionsSectionItemIcon">
 						<img width="70" height="70" loading="lazy" src="../images/svg/direction/2.svg" alt="Иконка охрана труда">
 					</div>
-					<span class="directionsSectionItemTitle">Пожарная безопасность</span>
+					<h3 class="directionsSectionItemTitle">Пожарная безопасность</h3>
 					<p class="directionsSectionItemDescription">Пожарно-технический минимум для руководителей подразделений
 						пожароопасных производств</p>
 					<button class="btnMain btnMainDirectionItem">подробнее</button>
@@ -199,7 +239,7 @@
 					<div class="directionsSectionItemIcon">
 						<img width="70" height="70" loading="lazy" src="../images/svg/direction/3.svg" alt="Иконка охрана труда">
 					</div>
-					<span class="directionsSectionItemTitle">Электробезопасность</span>
+					<h3 class="directionsSectionItemTitle">Электробезопасность</h3>
 					<p class="directionsSectionItemDescription">Программа обучения по электробезопасности предназначена для
 						специалистов, работающих с электроустановками</p>
 					<button class="btnMain btnMainDirectionItem">подробнее</button>
@@ -208,7 +248,7 @@
 					<div class="directionsSectionItemIcon">
 						<img width="70" height="70" loading="lazy" src="../images/svg/direction/4.svg" alt="Иконка охрана труда">
 					</div>
-					<span class="directionsSectionItemTitle">Первая помощь</span>
+					<h3 class="directionsSectionItemTitle">Первая помощь</h3>
 					<p class="directionsSectionItemDescription">Курс по первой помощи предназначен для обучения людей основам оказания
 						медицинской помощи при несчастных случаях и экстренных ситуациях</p>
 					<button class="btnMain btnMainDirectionItem">подробнее</button>
@@ -217,7 +257,7 @@
 					<div class="directionsSectionItemIcon">
 						<img width="70" height="70" loading="lazy" src="../images/svg/direction/5.svg" alt="Иконка охрана труда">
 					</div>
-					<span class="directionsSectionItemTitle">Экология</span>
+					<h3 class="directionsSectionItemTitle">Экология</h3>
 					<p class="directionsSectionItemDescription">Программа обучения по экологии направлена на расширение понимания
 						важности экологической устойчивости и развития навыков по оценке и управлению окружающей средой</p>
 					<button class="btnMain btnMainDirectionItem">подробнее</button>
@@ -226,7 +266,7 @@
 					<div class="directionsSectionItemIcon">
 						<img width="70" height="70" loading="lazy" src="../images/svg/direction/6.svg" alt="Иконка охрана труда">
 					</div>
-					<span class="directionsSectionItemTitle">Промышленная безопасность</span>
+					<h3 class="directionsSectionItemTitle">Промышленная безопасность</h3>
 					<p class="directionsSectionItemDescription">Программа обучения по промышленной безопасности предназначена для
 						руководителей и специалистов, работающих на промышленных предприятиях</p>
 					<button class="btnMain btnMainDirectionItem">подробнее</button>
@@ -235,7 +275,7 @@
 					<div class="directionsSectionItemIcon">
 						<img width="70" height="70" loading="lazy" src="../images/svg/direction/7.svg" alt="Иконка охрана труда">
 					</div>
-					<span class="directionsSectionItemTitle">Обучение профессиям</span>
+					<h3 class="directionsSectionItemTitle">Обучение профессиям</h3>
 					<p class="directionsSectionItemDescription">Программа обучения профессиям предоставляет возможность специалистам
 						приобрести или усовершенствовать навыки в определенной профессиональной области</p>
 					<button class="btnMain btnMainDirectionItem">подробнее</button>
@@ -275,28 +315,28 @@
 					<div class="staffSectionItemImg">
 						<img width="368" height="346" loading="lazy" src="../images/img.webp" alt="Владимир Александрович Снежкин">
 					</div>
-					<span class="staffSectionItemName">Владимир Александрович Снежкин</span>
+					<h3 class="staffSectionItemName">Владимир Александрович Снежкин</h3>
 					<span class="staffSectionItemDescription">Генеральный директор</span>
 				</div>
 				<div class="staffSectionItem">
 					<div class="staffSectionItemImg">
 						<img width="368" height="346" loading="lazy" src="../images/img.webp" alt="Владимир Александрович Снежкин">
 					</div>
-					<span class="staffSectionItemName">Владимир Александрович Снежкин</span>
+					<h3 class="staffSectionItemName">Владимир Александрович Снежкин</h3>
 					<span class="staffSectionItemDescription">Генеральный директор</span>
 				</div>
 				<div class="staffSectionItem">
 					<div class="staffSectionItemImg">
 						<img width="368" height="346" loading="lazy" src="../images/img.webp" alt="Владимир Александрович Снежкин">
 					</div>
-					<span class="staffSectionItemName">Владимир Александрович Снежкин</span>
+					<h3 class="staffSectionItemName">Владимир Александрович Снежкин</h3>
 					<span class="staffSectionItemDescription">Генеральный директор</span>
 				</div>
 				<div class="staffSectionItem">
 					<div class="staffSectionItemImg">
 						<img width="368" height="346" loading="lazy" src="../images/img.webp" alt="Владимир Александрович Снежкин">
 					</div>
-					<span class="staffSectionItemName">Владимир Александрович Снежкин</span>
+					<h3 class="staffSectionItemName">Владимир Александрович Снежкин</h3>
 					<span class="staffSectionItemDescription">Генеральный директор</span>
 				</div>
 			</div>
@@ -307,7 +347,7 @@
 		<div class="formPopupContent">
 			<div class="formPopupContentCloseWrapper">
 				<button aria-label="Закрыть popup" title="Закрыть popup" class="formPopupCloseBtn">
-					<img src="../images/svg/close.svg" alt="Иконка закрытие popup">
+					<div class="formPopupCloseBtnIcon"></div>
 				</button>
 			</div>
 			<div class="formPopupContentTitle">
@@ -335,8 +375,8 @@
 	</article>
 	<article class="popupCookies">
 		<div class="wrapperTitle">
-			<button class="closePopupCookies btnCloseJsPopupCookies">
-				<img src="../images/svg/close.svg" alt="Close popup">
+			<button class="closePopupCookies btnCloseJsPopupCookies" aria-label="закрыть popup cookies" title="Закрыть popup">
+				<div class="closeIcon"></div>
 			</button>
 		</div>
 		<span class="popupCookiesDescr">Мы используем Cookies, чтобы пользоваться сайтом было удобней</span>
@@ -346,7 +386,7 @@
 		<div class="container">
 			<div class="content">
 				<a class="logo" href="/">
-					<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+					<div class="logoImg"></div>
 				</a>
 				<div class="wrapperFooterMain">
 					<div class="wrapperFooterMainBox">
@@ -354,8 +394,8 @@
 						<a class="wrapperFooterMainBoxItem" href="/info-organization.html">Сведения об образовательной организации</a>
 						<a class="wrapperFooterMainBoxItem" href="/jobs-page.html">Вакансии</a>
 						<a class="wrapperFooterMainBoxItem" href="/politic.html">Политика конфиденциальности</a>
-						<button id="specialButton" title="Версия для слабовидящих" class="btnVeiw btnViewFooter">
-							<img src="../images/svg/view.svg" alt="Версия для слабовидящих">
+						<button title="Версия для слабовидящих" class="btnVeiw btnViewFooter">
+							<div class="btnVeiwImg"></div>
 							<span>Версия для слабовидящих</span>
 						</button>
 					</div>
