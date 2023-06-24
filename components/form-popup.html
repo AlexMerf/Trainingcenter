@@ -1,0 +1,30 @@
+<article class="formPopup formPopupOverlay" id="popupForm">
+	<div class="formPopupContent">
+		<div class="formPopupContentCloseWrapper">
+			<button aria-label="Закрыть popup" title="Закрыть popup" class="formPopupCloseBtn">
+				<img src="../images/svg/close.svg" alt="Иконка закрытие popup">
+			</button>
+		</div>
+		<div class="formPopupContentTitle">
+			<h2>Оставьте заявку</h2>
+			<span class="formPopupContentSubTitle">Заполните форму и мы свяжемся с вами</span>
+		</div>
+		<form class="formPopupContentForm formJS">
+			<div class="formGroup">
+				<input type="text" name="name" placeholder="Ваше имя" class="inputName" required minlength="2">
+				<span class="hint"></span>
+				<span class="error-message"></span>
+			</div>
+			<div class="formGroup">
+				<input type="tel" name="phone" placeholder="Ваш телефон" class="inputPhone" required>
+				<span class="hint"></span>
+				<span class="error-message"></span>
+			</div>
+			<button type="submit" class="btnMain submitBtn" disabled>отправить</button>
+			<div class="helpText">
+				<span>Нажимая на кнопку «Отправить», вы соглашаетесь с</span>
+				<a href="#">Политикой конфиденциальности</a>
+			</div>
+		</form>
+	</div>
+</article>

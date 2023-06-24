@@ -1,0 +1,26 @@
+<section class="formSection">
+	<picture>
+		<source media="(max-width: 500px)" srcset="
+		../images/svg/formBgMobile.svg">
+		<img width="1540" height="500" loading="lazy" src="../images/svg/formBg.svg" alt="Телефон с виджетами"
+			class="formSectionBgImage">
+	</picture>
+
+	<div class="content">
+		<h2>Получите консультацию по выбору курса и цене:</h2>
+		<span class="formSectionHelpText">Наши специалисты свяжутся с вами в течение 10 минут.</span>
+		<form class="formMain formJS">
+			<div class="formGroup">
+				<input type="text" name="name" placeholder="Ваше имя" required minlength="2">
+				<span class="hint"></span>
+				<span class="error-message"></span>
+			</div>
+			<div class="formGroup">
+				<input type="text" name="phone" placeholder="Ваш телефон" required>
+				<span class="hint"></span>
+				<span class="error-message"></span>
+			</div>
+			<button type="submit" class="btnMain" disabled>получить консультацию</button>
+		</form>
+	</div>
+</section>

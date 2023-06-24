@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.min.css">
+
+	<script src="https://lidrekon.ru/slep/js/jquery.js"></script>
+	<script src="https://lidrekon.ru/slep/js/uhpv-full.min.js"></script>
+
+	<title>Gulp Start 2023</title>
+</head>
+
+<body>
+	<header class="headerMainTopBox headerMain">
+		<div class="container">
+			<div class="headerMainTop">
+				<button id="specialButton" title="Версия для слабовидящих" class="btnVeiw">
+					<img width="24" height="24" src="../images/svg/view.svg" alt="Версия для слабовидящих">
+					<span>Версия для слабовидящих</span>
+				</button>
+				<a class="linkInfo" href="/info-organization.html">Сведения об образовательной организации</a>
+				<a class="linkSocial linkPhone" href="#">
+					<img width="24" height="24" src="../images/svg/phone.svg" alt="Телефон иконка">
+					+7 (919)-991-00-74
+				</a>
+				<button class="btnMain btnOpenFormPopup">перезвоните мне</button>
+			</div>
+		</div>
+	</header>
+	<header class="headerMainLowerBox headerMain">
+		<div class="container">
+			<div class="headerMainLower">
+				<a class="logo" href="/">
+					<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+				</a>
+				<nav class="navigationHeader">
+					<a class="navigationItem active" href="#">о центре</a>
+					<a class="navigationItem" href="/directions.html">направления</a>
+					<a class="navigationItem" href="#">педагогический состав</a>
+					<a class="navigationItem" href="#">основные документы</a>
+					<a class="navigationItem" href="/jobs-page.html">вакансии</a>
+					<a class="navigationItem" href="/contacts-page.html">контакты</a>
+				</nav>
+				<button class="btnMenu" title="открыть меню" aria-label="кнопка открыть мобильное меню">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</div>
+	</header>
+	
+	<article class="mobileMenu">
+	
+		<div class="mobileMenuTitle">
+	
+			<a class="logo" href="/">
+	
+				<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+	
+			</a>
+	
+			<button class="closeBtnMenu closeBtnMenuJS" title="Закрыть мобильное меню" aria-label="Закрыть мобильное меню">
+	
+				<img width="21" height="21" src="../images/svg/close.svg" alt="Закрыть мобильное меню">
+	
+			</button>
+	
+		</div>
+	
+		<nav class="navigationMobile">
+	
+			<a class="navigationMobileItem active" href="#">о центре</a>
+	
+			<a class="navigationMobileItem" href="#">направления</a>
+	
+			<a class="navigationMobileItem" href="#">педагогический состав</a>
+	
+			<a class="navigationMobileItem" href="#">основные документы</a>
+	
+			<a class="navigationMobileItem" href="#">вакансии</a>
+	
+			<a class="navigationMobileItem" href="#">контакты</a>
+	
+			<a class="navigationMobileItem" href="#">Сведения об образовательной организации</a>
+	
+		</nav>
+	
+		<div class="socialMobile">
+	
+			<button id="specialButton" title="Версия для слабовидящих" class="btnVeiwMobile">
+	
+				<img width="24" height="24" src="../images/svg/view.svg" alt="Версия для слабовидящих">
+	
+				<span>Версия для слабовидящих</span>
+	
+			</button>
+	
+			<a class="linkMobileSocial" href="#">
+	
+				<img width="24" height="24" src="../images/svg/email.svg" alt="Версия для слабовидящих">
+	
+				Termin5L@yandex.ru
+	
+			</a>
+	
+			<a class="linkMobileSocial" href="#">
+	
+				<img width="24" height="24" src="../images/svg/phone.svg" alt="Версия для слабовидящих">
+	
+				+7 (919)-991-00-74
+	
+			</a>
+	
+		</div>
+	
+		<button class="btnMain btnMobile btnOpenFormPopup closeBtnMenuJS">перезвоните мне</button>
+	
+	</article>
+	<main>
+		<section class="basicInformation">
+			<div class="breadcrumbs">
+				<a class="breadcrumbsLink" href="#">Главная</a>
+				<a class="breadcrumbsLink" href="#">Направления</a>
+			</div>
+			<h2>Основные сведения</h2>
+			<div class="basicInformationContent infoOrganizationBox">
+				<dl>
+					<div>
+						<dt>Наименование компании</dt>
+						<dd>Общество с ограниченной ответственностью «УЧЕБНЫЙ ЦЕНТР Специалист» (ООО «УЦ Специалист»)</dd>
+					</div>
+					<div>
+						<dt>Дата регистрации</dt>
+						<dd>12.04.2023</dd>
+					</div>
+					<div>
+						<dt>Генеральный директор</dt>
+						<dd>Снежкин Владимир Александрович </dd>
+					</div>
+					<div>
+						<dt>Адрес местонахождения компании</dt>
+						<dd>127422, Россия, г. Москва, проезд Дмитровский, д. 4, корп. 3 помещение 3/1</dd>
+					</div>
+					<div>
+						<dt>ИНН </dt>
+						<dd>7713498254</dd>
+					</div>
+					<div>
+						<dt>КПП </dt>
+						<dd>771301001</dd>
+					</div>
+					<div>
+						<dt>ОГРН</dt>
+						<dd>1237700274470</dd>
+					</div>
+					<div>
+						<dt>Телефон</dt>
+						<dd>
+							<a href="#">+7 919 991 00 74</a>
+						</dd>
+					</div>
+					<div>
+						<dt>Режим, график работы</dt>
+						<dd>
+							<span>Пн. – пт.: с 8:100 до 17:00</span>
+							<span>Сб. - вс.: выходные дни</span>
+						</dd>
+					</div>
+					<div>
+						<dt>Адрес электронной почты</dt>
+						<dd>
+							<a href="#">Termin5L@yandex.ru</a>
+						</dd>
+					</div>
+					<div>
+						<dt>ОКВЭД</dt>
+						<dd>85.21</dd>
+					</div>
+				</dl>
+			</div>
+		</section>
+		<section class="managementEducational">
+			<h2>Структура и органы управления образовательной организацией</h2>
+			<div class="managementEducationalContent infoOrganizationBox">
+				<dl>
+					<div>
+						<dt>Генеральный директор</dt>
+						<dd>Снежкин Владимир Александрович</dd>
+					</div>
+					<div>
+						<dt>Заместитель генерального директора</dt>
+						<dd>Снежкин Владимир Александрович</dd>
+					</div>
+					<div>
+						<dt>Начальник отдела обучения, оценки и развития персонала</dt>
+						<dd>Снежкин Владимир Александрович</dd>
+					</div>
+					<div>
+						<dt>Начальник отдела охраны труда, промышленной безопасности и экологии</dt>
+						<dd>Снежкин Владимир Александрович</dd>
+					</div>
+					<div>
+						<dt>Директор департамента, главный бухгалтер</dt>
+						<dd>Снежкин Владимир Александрович</dd>
+					</div>
+				</dl>
+			</div>
+		</section>
+		<section class="licensesSection">
+			<h2>Лицензии</h2>
+			<div class="licensesItems">
+				<div class="licensesItem">
+					<img class="notImage" src="../images/svg/notImage.svg" alt="Not Image">
+				</div>
+				<div class="licensesItem">
+					<img class="notImage" src="../images/svg/notImage.svg" alt="Not Image">
+				</div>
+				<div class="licensesItem">
+					<img class="notImage" src="../images/svg/notImage.svg" alt="Not Image">
+				</div>
+				<div class="licensesItem">
+					<img class="notImage" src="../images/svg/notImage.svg" alt="Not Image">
+				</div>
+				<div class="licensesItem">
+					<img class="notImage" src="../images/svg/notImage.svg" alt="Not Image">
+				</div>
+			</div>
+		</section>
+		<section class="basicDocuments">
+			<h2>Структура и органы управления образовательной организацией</h2>
+			<div class="basicDocumentsContent infoOrganizationBox">
+				<dl>
+					<div>
+						<dt>Устав</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Лицензия на осуществление образовательной деятельности</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Положение об организации дополнительного профессионального образования на базе учебного отдела «Учебный
+							центр СПЕЦИАЛИСТ»</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Правила применения дистанционных образовательных технологий</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Правила формирования, ведения и хранения личных дел слушателей</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Уведомление о внесении в реестр аккредитованных организаций</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Положение о возникновении, изменении и прекращении отношений между ООО «Учебный центр СПЕЦИАЛИСТ» и
+							обучающимися и (или) родителями (законными представителями) несовершеннолетних обучающихся</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Положение о комиссии по урегулированию споров между участниками образовательных отношений в ООО «Учебный
+							центр СПЕЦИАЛИСТ»</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Положение о порядке приема, перевода, отчисления, восстановления обучающихся в ООО «Учебный центр
+							СПЕЦИАЛИСТ»</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Положение о соотношении учебной (преподавательской) и другой педагогической работы в пределах рабочей
+							недели педагогических работников ООО «Учебный центр СПЕЦИАЛИСТ»</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Положение о текущем контроле, промежуточной и итоговой аттестации слушателей ООО «Учебный центр
+							СПЕЦИАЛИСТ»</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Правила выдачи, заполнения, хранения и учета документов о квалификации в ООО «Учебный центр СПЕЦИАЛИСТ»
+						</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Кодекс профессиональной этики педагогических работников ООО «Учебный центр СПЕЦИАЛИСТ»</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Положение об оказании платных образовательных услуг Компанией ООО «Учебный центр СПЕЦИАЛИСТ»</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+					<div>
+						<dt>Сведения о специальной оценки условий труда (СОУТ)</dt>
+						<dd>
+							<button class="btnMain">посмотреть документ</button>
+						</dd>
+					</div>
+				</dl>
+			</div>
+		</section>
+		<section class="financialActivity">
+			<h2>Финансово-хозяйственная деятельность</h2>
+			<div class="financialActivityContent infoOrganizationBox">
+				<dl>
+					<div>
+						<dt>Образовательная деятельность, финансовое обеспечение которой осуществляется за счет бюджетных
+							ассигнований федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов не
+							реализуется
+							Образовательная деятельность, финансовое обеспечение которой осуществляется по договорам об оказании
+							платных образовательных услуг за счет средств физических и (или) юридических лиц, за 2023 год составила
+							999 999 руб .</dt>
+						<dd></dd>
+					</div>
+				</dl>
+			</div>
+		</section>
+		<section class="accessibleEnvironment">
+			<h2>Доступная среда</h2>
+			<div class="accessibleEnvironmentContent infoOrganizationBox">
+				<div class="accessibleEnvironmentContentWrapper">
+					<div class="accessibleEnvironmentContentBox">
+						<p class="accessibleEnvironmentContentBoxText">Учебный процесс реализуется в заочной форме обучения с
+							применением
+							электронного обучения и дистанционных
+							образовательных технологий.
+							Сведения о специально оборудованных учебных кабинетах - отсутствуют.
+							Сведения о приспособленных объектах для проведения практических занятий - отсутствуют.
+							Сведения о наличии приспособленных библиотек, специальных объектов спорта, условиях питания и охраны
+							здоровья обучающихся - отсутствуют.</p>
+					</div>
+					<div class="accessibleEnvironmentContentBox">
+						<span class="accessibleEnvironmentContentBoxTitle">Информация о средствах обучения, приспособленных для
+							использования инвалидами и лицами с ограниченными
+							возможностями здоровья:</span>
+						<p class="accessibleEnvironmentContentBoxText">
+							Инвалидам и лицам с ограниченными возможностями здоровья по их заявлению предоставляется возможность
+							обучения по индивидуальному учебному плану.
+							В зависимости от индивидуальных особенностей обучающихся из числа инвалидов (лиц с ОВЗ) по их заявлению
+							обеспечиваются следующие требования:
+							для слабовидящих:
+							— учебные материалы и иные материалы для текущего контроля успеваемости и промежуточной аттестации
+							оформляются увеличенным шрифтом;
+							— сайт организации имеет версию для слабовидящих (для инвалидов и лиц с ограниченными возможностями
+							здоровья
+							по зрению);
+							— допускается использование увеличивающих устройств, имеющихся у обучающихся.
+							для глухих и слабослышащих, с тяжелыми нарушениями речи:
+							— учебные материалы и иные материалы для текущего контроля успеваемости и промежуточной аттестации
+							оформляются в электронном виде;
+							— промежуточная и итоговая аттестации проводятся только в письменной форме.
+							Информация об обеспечении доступа в здания образовательной организации инвалидов и лиц с ограниченными
+							возможностями здоровья - учебный процесс реализуется в заочной форме обучения с применением электронного
+							обучения и дистанционных образовательных технологий.
+						</p>
+					</div>
+					<div class="accessibleEnvironmentContentBox">
+						<span class="accessibleEnvironmentContentBoxTitle">Информация о доступе к информационным системам и
+							информационно-телекоммуникационным сетям,
+							приспособленным для использования инвалидами и лицами с ограниченными возможностями здоровья</span>
+						<p class="accessibleEnvironmentContentBoxText">
+							Электронная образовательная среда организации включает в себя электронную среду управления обучением
+							https://<span class="accessibleEnvironmentContentBoxTextRedColor">доменное имя</span>.ru, которая предлагает
+							широкий спектр возможностей для полноценной
+							поддержки процесса
+							обучения, а также разнообразные способы представления учебного материала, проверки знаний и контроля
+							успеваемости.
+						</p>
+					</div>
+					<div class="accessibleEnvironmentContentBox">
+						<span class="accessibleEnvironmentContentBoxTitle">Сведения об электронных образовательных ресурсах, в том числе
+							приспособленных для использования
+							инвалидами и лицами с ограниченными возможностями здоровья</span>
+						<p class="accessibleEnvironmentContentBoxText">
+							Учебно-методические материалы адаптированы для использования лиц с ограниченными возможностями, а именно:
+							обеспечена возможность масштабирования страницы, интерфейса, шрифта, разделов меню, доступен полноэкранный
+							и
+							увеличенный/уменьшенный масштаб чтения книги.
+							Сведения о наличии специальных технических средств обучения коллективного и индивидуального пользования
+							для
+							инвалидов и лиц с ограниченными возможностями здоровья - отсутствуют.
+							Информация о наличии условий для беспрепятственного доступа в общежития, интернаты - не предоставляется.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<article class="formPopup formPopupOverlay" id="popupForm">
+		<div class="formPopupContent">
+			<div class="formPopupContentCloseWrapper">
+				<button aria-label="Закрыть popup" title="Закрыть popup" class="formPopupCloseBtn">
+					<img src="../images/svg/close.svg" alt="Иконка закрытие popup">
+				</button>
+			</div>
+			<div class="formPopupContentTitle">
+				<h2>Оставьте заявку</h2>
+				<span class="formPopupContentSubTitle">Заполните форму и мы свяжемся с вами</span>
+			</div>
+			<form class="formPopupContentForm formJS">
+				<div class="formGroup">
+					<input type="text" name="name" placeholder="Ваше имя" class="inputName" required minlength="2">
+					<span class="hint"></span>
+					<span class="error-message"></span>
+				</div>
+				<div class="formGroup">
+					<input type="tel" name="phone" placeholder="Ваш телефон" class="inputPhone" required>
+					<span class="hint"></span>
+					<span class="error-message"></span>
+				</div>
+				<button type="submit" class="btnMain submitBtn" disabled>отправить</button>
+				<div class="helpText">
+					<span>Нажимая на кнопку «Отправить», вы соглашаетесь с</span>
+					<a href="#">Политикой конфиденциальности</a>
+				</div>
+			</form>
+		</div>
+	</article>
+	<article class="popupCookies">
+		<div class="wrapperTitle">
+			<button class="closePopupCookies btnCloseJsPopupCookies">
+				<img src="../images/svg/close.svg" alt="Close popup">
+			</button>
+		</div>
+		<span class="popupCookiesDescr">Мы используем Cookies, чтобы пользоваться сайтом было удобней</span>
+		<button class="btnMain btnPopupCookies btnCloseJsPopupCookies">хорошо</button>
+	</article>
+	<footer class="footerMain">
+		<div class="container">
+			<div class="content">
+				<a class="logo" href="/">
+					<img width="189" height="70" src="../images/svg/logo.svg" alt="Logo">
+				</a>
+				<div class="wrapperFooterMain">
+					<div class="wrapperFooterMainBox">
+						<span class="wrapperFooterMainBoxTitle">ИНФОРМАЦИЯ</span>
+						<a class="wrapperFooterMainBoxItem" href="/info-organization.html">Сведения об образовательной организации</a>
+						<a class="wrapperFooterMainBoxItem" href="/jobs-page.html">Вакансии</a>
+						<a class="wrapperFooterMainBoxItem" href="/politic.html">Политика конфиденциальности</a>
+						<button id="specialButton" title="Версия для слабовидящих" class="btnVeiw btnViewFooter">
+							<img src="../images/svg/view.svg" alt="Версия для слабовидящих">
+							<span>Версия для слабовидящих</span>
+						</button>
+					</div>
+					<div class="wrapperFooterMainBox">
+						<span class="wrapperFooterMainBoxTitle">МЕНЮ</span>
+						<nav class="navigationFooter">
+							<a class="navigationFooterItem wrapperFooterMainBoxItem active" href="#">О центре</a>
+							<a class="navigationFooterItem wrapperFooterMainBoxItem" href="#">Программы обучения</a>
+							<a class="navigationFooterItem wrapperFooterMainBoxItem" href="#">Педагогический состав</a>
+							<a class="navigationFooterItem wrapperFooterMainBoxItem" href="#">Основные документы</a>
+							<a class="navigationFooterItem wrapperFooterMainBoxItem" href="/contacts-page.html">Контакты</a>
+						</nav>
+					</div>
+					<div class="wrapperFooterMainBox">
+						<span class="wrapperFooterMainBoxTitle">Контакты</span>
+						<dl class="descriptionFooterBox">
+							<div>
+								<dt>Адрес:</dt>
+								<dd>г. Москва, Варшавское ш., д. 129А</dd>
+							</div>
+							<div>
+								<dt>Телефон:</dt>
+								<dd>
+									<a href="#">+7 919 991 00 74</a>
+								</dd>
+							</div>
+							<div>
+								<dt>Email:</dt>
+								<dd>
+									<a href="#">Termin5L@yandex.ru</a>
+								</dd>
+							</div>
+						</dl>
+					</div>
+					<div class="wrapperFooterMainBox">
+						<a class="footerPhone" href="#">+7 (919)-991-00-74</a>
+						<button class="btnMain btnMainFooter btnOpenFormPopup">перезвоните мне</button>
+						<a class="wrapperFooterMainBoxItem devVB" href="#">Разработка сайта</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="js/main.min.js"></script>
+</body>
+
+</html>
