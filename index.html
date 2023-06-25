@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="shortcut icon" href="/app/images/svg/favicon.svg" type="image/x-icon">
 
 	<title>Gulp Start 2023</title>
 </head>
@@ -33,7 +34,7 @@
 			<div class="accessibilityPanelWrapperBox latterSpacing">
 				<span class="accessibilityPanelWrapperBoxTitle">Межбуквенное расстояние:</span>
 				<div class="accessibilityPanelWrapperBoxTools">
-					<button class="btnMain active small" id="letterSpacingDefault">рекомендуймый</button>
+					<button class="btnMain active small" id="letterSpacingDefault">рекомендуемый</button>
 					<button class="btnMain small" id="letterSpacingLarge">большой</button>
 					<button class="btnMain small" id="letterSpacingExtraLarge">очень большой</button>
 				</div>
@@ -41,7 +42,7 @@
 			<div class="accessibilityPanelWrapperBox fontStyles">
 				<span class="accessibilityPanelWrapperBoxTitle">Размер шрифта:</span>
 				<div class="accessibilityPanelWrapperBoxTools">
-					<button class="btnMain active small" id="fontSizeDefault">рекомендуймый</button>
+					<button class="btnMain active small" id="fontSizeDefault">рекомендуемый</button>
 					<button class="btnMain small" id="fontSizeLarge">большой</button>
 					<button class="btnMain small" id="fontSizeExtraLarge">очень большой</button>
 				</div>
@@ -53,6 +54,9 @@
 					<button class="btnMain small" id="colorSchemeContract">контрастная</button>
 					<button class="btnMain small" id="colorSchemeInversion">инверсия</button>
 				</div>
+			</div>
+			<div class="accessibilityPanelWrapperBox">
+				<button class="btnMain" id="removeAccessibilityPanel">обычная версия сайта</button>
 			</div>
 		</div>
 	</section>
@@ -80,10 +84,32 @@
 					<div class="logoImg"></div>
 				</a>
 				<nav class="navigationHeader">
-					<a class="navigationItem active" href="#">о центре</a>
+					<a class="navigationItem active" href="/">о центре</a>
 					<a class="navigationItem" href="/directions.html">направления</a>
-					<a class="navigationItem" href="#">педагогический состав</a>
-					<a class="navigationItem" href="#">основные документы</a>
+					<a class="navigationItem" href="#staff-section">педагогический состав</a>
+					<a class="navigationItem" href="/info-organization.html">основные документы</a>
+					<a class="navigationItem" href="/jobs-page.html">вакансии</a>
+					<a class="navigationItem" href="/contacts-page.html">контакты</a>
+				</nav>
+				<button class="btnMenu" title="открыть меню" aria-label="кнопка открыть мобильное меню">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</div>
+	</header>
+	<header class="headerMainLowerBoxScroll headerMain">
+		<div class="container">
+			<div class="headerMainLower">
+				<a class="logo" href="/">
+					<div class="logoImg"></div>
+				</a>
+				<nav class="navigationHeader">
+					<a class="navigationItem active" href="/">о центре</a>
+					<a class="navigationItem" href="/directions.html">направления</a>
+					<a class="navigationItem" href="#staff-section">педагогический состав</a>
+					<a class="navigationItem" href="/info-organization.html">основные документы</a>
 					<a class="navigationItem" href="/jobs-page.html">вакансии</a>
 					<a class="navigationItem" href="/contacts-page.html">контакты</a>
 				</nav>
@@ -116,19 +142,19 @@
 	
 		<nav class="navigationMobile">
 	
-			<a class="navigationMobileItem active" href="#">о центре</a>
+			<a class="navigationMobileItem active closeBtnMenuJS" href="/">о центре</a>
 	
-			<a class="navigationMobileItem" href="#">направления</a>
+			<a class="navigationMobileItem closeBtnMenuJS" href="/directions.html">направления</a>
 	
-			<a class="navigationMobileItem" href="#">педагогический состав</a>
+			<a class="navigationMobileItem closeBtnMenuJS" href="/#staff-section">педагогический состав</a>
 	
-			<a class="navigationMobileItem" href="#">основные документы</a>
+			<a class="navigationMobileItem closeBtnMenuJS" href="/info-organization.html">основные документы</a>
 	
-			<a class="navigationMobileItem" href="#">вакансии</a>
+			<a class="navigationMobileItem closeBtnMenuJS" href="/jobs-page.html">вакансии</a>
 	
-			<a class="navigationMobileItem" href="#">контакты</a>
+			<a class="navigationMobileItem closeBtnMenuJS" href="/contacts-page.html">контакты</a>
 	
-			<a class="navigationMobileItem" href="#">Сведения об образовательной организации</a>
+			<a class="navigationMobileItem closeBtnMenuJS" href="/info-organization.html">Сведения об образовательной организации</a>
 	
 		</nav>
 	
@@ -308,7 +334,7 @@
 				</form>
 			</div>
 		</section>
-		<section class="staffSection">
+		<section class="staffSection" id="staff-section">
 			<h2>Педагогический состав</h2>
 			<div class="content">
 				<div class="staffSectionItem">
@@ -339,8 +365,15 @@
 					<h3 class="staffSectionItemName">Владимир Александрович Снежкин</h3>
 					<span class="staffSectionItemDescription">Генеральный директор</span>
 				</div>
+				<div class="staffSectionItem">
+					<div class="staffSectionItemImg">
+						<img width="368" height="346" loading="lazy" src="../images/img.webp" alt="Владимир Александрович Снежкин">
+					</div>
+					<h3 class="staffSectionItemName">Владимир Александрович Снежкин</h3>
+					<span class="staffSectionItemDescription">Генеральный директор</span>
+				</div>
 			</div>
-			<a class="staffSectionBtnMore" href="#">Смотреть весь состав</a>
+			<button class="staffSectionBtnMore">Смотреть весь состав</button>
 		</section>
 	</main>
 	<article class="formPopup formPopupOverlay" id="popupForm">
@@ -374,11 +407,6 @@
 		</div>
 	</article>
 	<article class="popupCookies">
-		<div class="wrapperTitle">
-			<button class="closePopupCookies btnCloseJsPopupCookies" aria-label="закрыть popup cookies" title="Закрыть popup">
-				<div class="closeIcon"></div>
-			</button>
-		</div>
 		<span class="popupCookiesDescr">Мы используем Cookies, чтобы пользоваться сайтом было удобней</span>
 		<button class="btnMain btnPopupCookies btnCloseJsPopupCookies">хорошо</button>
 	</article>
