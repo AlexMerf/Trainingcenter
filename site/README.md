@@ -114,3 +114,11 @@ site/
 `documents.png`, `info-organization.png`, `politic.png`, `404.png`, `home-mobile.png`.
 
 Переснять: запустить `pnpm preview` (порт 4321) и выполнить `node tools/screenshot.mjs`.
+## Деплой на Vercel
+
+- Проект: `trainingcenter-1rbj` (команда AlexMerf's projects), Git-интеграция с `main`.
+- Настройки проекта: **Root Directory = `site`**, Framework = **Astro**, Node.js **22.x**.
+- Для canonical/OG/sitemap задана переменная окружения **`SITE_URL`** (production):
+  `https://trainingcenter-1rbj-alexmerfs-projects.vercel.app`.
+- Локально и в CI без `SITE_URL` используется заглушка `https://trainingcenter.example`.
+- Пуш в `main` автоматически запускает production-деплой.
