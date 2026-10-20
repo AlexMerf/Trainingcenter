@@ -1,0 +1,87 @@
+---
+import '@fontsource-variable/manrope';
+
+import '../styles/global.css';
+
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import AccessibilityWidget from '../components/AccessibilityWidget.astro';
+import { site } from '../data/content';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
+}
+
+const { title, description, jsonLd, noindex = false } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body class="flex min-h-screen flex-col bg-[#f5f7fa] text-[#0c1729] antialiased">
+    <SiteHeader />
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <SiteFooter />
+    <AccessibilityWidget />
+
+    <script is:inline>
+      (function () {
+        // Мобильное меню
+        document.querySelectorAll('[data-menu-toggle]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var panel = document.querySelector(btn.getAttribute('data-menu-toggle'));
+            if (!panel) return;
+            var open = panel.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', String(open));
+            document.body.style.overflow = open ? 'hidden' : '';
+          });
+        });
+
+        document.querySelectorAll('[data-menu-close]').forEach(function (el) {
+          el.addEventListener('click', function () {
+            var panel = el.closest('[data-menu-panel]');
+            if (!panel) return;
+            panel.classList.remove('is-open');
+            var btn = document.querySelector('[data-menu-toggle="#' + panel.id + '"]');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+
+        // Демонстрационные формы: показываем статус, никуда не отправляем.
+        document.querySelectorAll('[data-demo-form]').forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var status = form.querySelector('[data-form-status]');
+            if (status) status.hidden = false;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

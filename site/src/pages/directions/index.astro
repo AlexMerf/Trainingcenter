@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import DirectionCard from '../../components/DirectionCard.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import Icon from '../../components/Icon.astro';
+import { programs, site } from '../../data/content';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Направления обучения',
+  itemListElement: programs.map((program, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: program.title,
+    url: `${site.url}/directions/${program.slug}/`,
+  })),
+};
+---
+
+<BaseLayout
+  title="Направления обучения — учебный центр «Специалист»"
+  description="Охрана труда, пожарная и электробезопасность, первая помощь, экология, промышленная безопасность и обучение профессиям. Дистанционные программы ДПО в Москве."
+  jsonLd={jsonLd}
+>
+  <PageHero
+    eyebrow="Каталог программ"
+    title="Направления обучения"
+    description="Семь направлений и 43 программы: от обязательных требований по охране труда до новой рабочей профессии. Выберите направление — покажем программу, сроки и документ."
+    breadcrumbs={[{ label: 'Главная', href: '/' }, { label: 'Направления' }]}
+  >
+    <div class="mt-6 flex flex-wrap gap-2">
+      <span class="chip">Дистанционно</span>
+      <span class="chip">16–112 часов</span>
+      <span class="chip">Официальный документ</span>
+      <span class="chip">Лицензия ДПО</span>
+    </div>
+  </PageHero>
+
+  <section class="section-y">
+    <div class="container-x">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {programs.map((program) => <DirectionCard program={program} />)}
+
+        <div class="flex flex-col justify-between rounded-2xl bg-[#0f1c33] p-6 text-white lg:col-span-2">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-white/10"><Icon name="settings" size={22} /></span>
+          <div class="mt-5">
+            <h2 class="text-[18px] font-extrabold">Нужна программа под задачу?</h2>
+            <p class="mt-2 text-[13px] leading-relaxed text-white/65">Соберём корпоративный курс под отрасль, должность и сроки. Расскажите о задаче — предложим решение.</p>
+          </div>
+          <a class="mt-6 inline-flex items-center gap-2 text-[13px] font-bold text-[#8fb6ff]" href="#lead">Обсудить программу <Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-y border-y border-[#e4e9f1] bg-white">
+    <div class="container-x grid gap-10 lg:grid-cols-[1fr_440px]">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Как выбрать</span>
+        <h2 class="mt-2 font-display-a text-[clamp(1.75rem,3.2vw,2.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">
+          Поможем подобрать программу
+        </h2>
+        <p class="mt-4 max-w-[52ch] text-[14.5px] leading-relaxed text-[#5a6a80]">
+          Подбор зависит от должности, отрасли и требований надзорных органов. Ответьте на три вопроса — методист предложит программу, сроки и стоимость, а также подскажет, какие документы понадобятся.
+        </p>
+        <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+          <li class="flex items-start gap-2.5 text-[13px] text-[#3c4a5f]"><Icon name="check" size={17} class="mt-0.5 shrink-0 text-[#16a34a]" /> Кого и к какому сроку нужно обучить</li>
+          <li class="flex items-start gap-2.5 text-[13px] text-[#3c4a5f]"><Icon name="check" size={17} class="mt-0.5 shrink-0 text-[#16a34a]" /> Требования вашей отрасли</li>
+          <li class="flex items-start gap-2.5 text-[13px] text-[#3c4a5f]"><Icon name="check" size={17} class="mt-0.5 shrink-0 text-[#16a34a]" /> Нужен ли документ установленного образца</li>
+          <li class="flex items-start gap-2.5 text-[13px] text-[#3c4a5f]"><Icon name="check" size={17} class="mt-0.5 shrink-0 text-[#16a34a]" /> Корпоративный формат для группы</li>
+        </ul>
+      </div>
+
+      <LeadForm title="Подобрать программу" subtitle="Оставьте заявку — методист свяжется и поможет с выбором." source="Каталог программ" />
+    </div>
+  </section>
+</BaseLayout>

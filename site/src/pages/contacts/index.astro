@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import Icon from '../../components/Icon.astro';
+import { site, legalInfo } from '../../data/content';
+---
+
+<BaseLayout
+  title="Контакты — учебный центр «Специалист»"
+  description="Контакты учебного центра «Специалист»: адрес в Москве, телефон, почта, режим работы и реквизиты образовательной организации."
+>
+  <PageHero
+    eyebrow="Связаться с нами"
+    title="Контакты"
+    description="Позвоните, напишите или оставьте заявку — ответим в течение 10 минут в рабочее время и поможем выбрать программу."
+    breadcrumbs={[{ label: 'Главная', href: '/' }, { label: 'Контакты' }]}
+  />
+
+  <section class="section-y">
+    <div class="container-x grid items-start gap-10 lg:grid-cols-[1fr_440px]">
+      <div>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <a class="rounded-2xl border border-[#e4e9f1] bg-white p-5 transition hover:border-[#b9cdf0]" href={site.phoneHref}>
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#eef4ff] text-[#1d4ed8]"><Icon name="phone" size={19} /></span>
+            <p class="mt-4 text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#7c8ba1]">Телефон</p>
+            <p class="mt-1 text-[16px] font-extrabold">{site.phone}</p>
+            <p class="mt-1 text-[11.5px] text-[#7c8ba1]">{site.schedule}</p>
+          </a>
+          <a class="rounded-2xl border border-[#e4e9f1] bg-white p-5 transition hover:border-[#b9cdf0]" href={site.emailHref}>
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#eef4ff] text-[#1d4ed8]"><Icon name="mail" size={19} /></span>
+            <p class="mt-4 text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#7c8ba1]">Почта</p>
+            <p class="mt-1 text-[16px] font-extrabold">{site.email}</p>
+            <p class="mt-1 text-[11.5px] text-[#7c8ba1]">для слушателей и организаций</p>
+          </a>
+          <div class="rounded-2xl border border-[#e4e9f1] bg-white p-5 sm:col-span-2">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#eef4ff] text-[#1d4ed8]"><Icon name="pin" size={19} /></span>
+            <p class="mt-4 text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#7c8ba1]">Адрес</p>
+            <p class="mt-1 text-[15px] font-extrabold">{site.address}</p>
+            <p class="mt-1 text-[11.5px] text-[#7c8ba1]">{site.postalAddress}</p>
+          </div>
+        </div>
+
+        <div class="mt-4 overflow-hidden rounded-2xl border border-[#e4e9f1] bg-[#eaf1ff]">
+          <div class="relative h-[280px]">
+            <div
+              class="absolute inset-0 opacity-60"
+              style="background-image: linear-gradient(#cfdbee 1px, transparent 1px), linear-gradient(90deg, #cfdbee 1px, transparent 1px); background-size: 44px 44px;"
+            >
+            </div>
+            <div class="absolute left-[10%] top-[18%] h-24 w-36 rounded-lg bg-white/70"></div>
+            <div class="absolute left-[56%] top-[50%] h-20 w-44 rounded-lg bg-white/80"></div>
+            <div class="absolute left-[36%] top-[22%] h-16 w-28 rounded-lg bg-white/60"></div>
+            <div class="absolute left-[22%] top-[62%] h-14 w-24 rounded-lg bg-white/60"></div>
+
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="flex flex-col items-center gap-2.5">
+                <span class="grid h-14 w-14 place-items-center rounded-full bg-[#1d4ed8] text-white shadow-[0_16px_30px_-12px_rgba(29,78,216,.8)]"><Icon name="pin" size={26} /></span>
+                <span class="rounded-full bg-white px-4 py-2 text-[12px] font-bold shadow-sm">{site.address}</span>
+              </div>
+            </div>
+
+            <a
+              class="absolute right-4 bottom-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[12px] font-bold text-[#1d4ed8] shadow-sm transition hover:bg-[#f8fafc]"
+              href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%B7%D0%B4%2C%204%2C%20%D0%BA%D0%BE%D1%80%D0%BF.%203"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Открыть в Яндекс.Картах <Icon name="arrow" size={14} />
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h2 class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Реквизиты</h2>
+          <dl class="mt-4 grid gap-x-8 gap-y-3 rounded-2xl border border-[#e4e9f1] bg-white p-6 text-[13px] sm:grid-cols-2">
+            {legalInfo.map((item) => (
+              <div>
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#7c8ba1]">{item.label}</dt>
+                <dd class="mt-0.5 font-semibold">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+
+      <div id="lead" class="lg:sticky lg:top-24">
+        <LeadForm source="Контакты" />
+        <div class="mt-4 rounded-2xl border border-[#e4e9f1] bg-[#f8fafc] p-5">
+          <h2 class="text-[13px] font-extrabold">Корпоративное обучение</h2>
+          <p class="mt-1.5 text-[12px] leading-relaxed text-[#64748b]">Обучаем группы сотрудников по договору. Выставим счёт, подготовим документы и согласуем график под производственный процесс.</p>
+          <a class="mt-3 inline-flex items-center gap-2 text-[12px] font-bold text-[#1d4ed8]" href="/directions/">Смотреть программы <Icon name="arrow" size={14} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

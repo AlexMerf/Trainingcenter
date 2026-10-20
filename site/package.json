@@ -1,0 +1,21 @@
+{
+  "name": "trainingcenter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Учебный центр «Специалист» — современный перезапуск архивного проекта на Astro + Tailwind",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.18.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  }
+}

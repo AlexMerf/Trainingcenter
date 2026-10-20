@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import DirectionCard from '../components/DirectionCard.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { site, stats, programs, guarantees, steps, staff, facts, documents } from '../data/content';
+
+const featured = programs.slice(0, 6);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: site.name,
+  alternateName: site.legal,
+  url: site.url,
+  telephone: site.phone,
+  email: site.email,
+  foundingDate: String(site.founded),
+  address: {
+    '@type': 'PostalAddress',
+    postalCode: '127422',
+    addressLocality: 'Москва',
+    streetAddress: 'Дмитровский проезд, 4, корп. 3',
+    addressCountry: 'RU',
+  },
+};
+---
+
+<BaseLayout
+  title="Учебный центр «Специалист» — ДПО в Москве"
+  description="Охрана труда, пожарная и электробезопасность, первая помощь и повышение квалификации. Дистанционное обучение с официальным документом. Москва, с 2012 года."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(75%_60%_at_100%_0%,#dbe7ff_0%,transparent_62%)]"></div>
+    <div class="container-x relative grid items-center gap-12 py-12 lg:grid-cols-[1.02fr_0.98fr] lg:py-20">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full border border-[#c9d7f2] bg-white px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#1d4ed8]">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#22c55e]"></span>
+          ДПО · Москва · с {site.founded} года
+        </span>
+
+        <h1 class="mt-6 font-display-a text-[clamp(2.4rem,5.2vw,4.1rem)] font-extrabold leading-[1.03] tracking-[-0.03em]">
+          Профессия,<br />которой <span class="text-[#1d4ed8]">доверяют</span>
+        </h1>
+
+        <p class="mt-6 max-w-[46ch] text-[17px] leading-relaxed text-[#52627a]">
+          Охрана труда, пожарная и электробезопасность, первая помощь и повышение квалификации — дистанционно, с официальным документом.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a class="btn btn--primary" href="/directions/">Выбрать программу <Icon name="arrow" size={17} /></a>
+          <a class="btn btn--secondary" href="#lead">Получить консультацию</a>
+        </div>
+
+        <dl class="mt-10 grid max-w-[540px] grid-cols-2 gap-x-4 gap-y-6 border-t border-[#e2e8f1] pt-7 sm:grid-cols-4">
+          {stats.map((item) => (
+            <div>
+              <dt class="sr-only">{item.label}</dt>
+              <dd class="m-0 text-[26px] font-extrabold tracking-tight">{item.value}<span class="text-[#1d4ed8]">{item.suffix}</span></dd>
+              <p class="mt-1 text-[12px] font-medium leading-snug text-[#64748b]">{item.label}</p>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="relative lg:pl-6">
+        <div class="relative overflow-hidden rounded-[30px] border border-white/70 bg-[#0f766e] shadow-[0_40px_90px_-32px_rgba(15,23,42,.5)]">
+          <img src="/images/hero.webp" alt="" width="1120" height="760" class="h-[380px] w-full object-cover sm:h-[460px] lg:h-[520px]" data-decor />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#072033]/90 via-[#072033]/25 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+            <div class="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <span class="text-[10.5px] font-bold uppercase tracking-[0.14em] text-white/70">Ближайший поток</span>
+                <p class="mt-1 text-[21px] font-extrabold text-white">3 ноября · дистанционно</p>
+              </div>
+              <a class="rounded-full bg-white/95 px-4 py-2.5 text-[12.5px] font-bold text-[#0c1729] transition hover:bg-white" href="/directions/">43 программы</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -left-2 top-6 rounded-2xl border border-[#e2e8f1] bg-white p-4 shadow-[0_24px_60px_-24px_rgba(15,23,42,.4)] sm:-left-5">
+          <div class="flex items-center gap-3">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#eaf1ff] text-[#1d4ed8]"><Icon name="shield" size={20} /></span>
+            <div>
+              <p class="text-[12px] font-extrabold leading-tight">Лицензия ДПО</p>
+              <p class="text-[10.5px] leading-tight text-[#64748b]">№ {site.license}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Факты -->
+  <div class="border-y border-[#e4e9f1] bg-white">
+    <div class="container-x grid gap-4 py-5 sm:grid-cols-2 lg:grid-cols-4">
+      {facts.map((fact) => (
+        <div class="flex items-center gap-2.5">
+          <Icon name="check" size={16} class="shrink-0 text-[#16a34a]" />
+          <span class="text-[12px] text-[#64748b]">{fact.label}:</span>
+          <span class="text-[12.5px] font-bold">{fact.value}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Направления -->
+  <section id="directions" class="section-y">
+    <div class="container-x">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Направления</span>
+          <h2 class="mt-2 max-w-[22ch] font-display-a text-[clamp(1.75rem,3.4vw,2.6rem)] font-extrabold leading-[1.08] tracking-[-0.02em]">
+            Программы для работы и карьеры
+          </h2>
+        </div>
+        <a class="inline-flex items-center gap-2 text-[13px] font-bold text-[#1d4ed8] transition hover:gap-3" href="/directions/">
+          Все программы <Icon name="arrow" size={16} />
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.map((program) => <DirectionCard program={program} />)}
+
+        <a class="group flex flex-col justify-between rounded-2xl bg-[#0f1c33] p-6 text-white transition duration-200 hover:-translate-y-1 hover:bg-[#13243f] sm:col-span-2 lg:col-span-3" href="/directions/">
+          <span class="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-white"><Icon name="settings" size={22} /></span>
+          <div class="mt-5">
+            <h3 class="text-[18px] font-extrabold">Смотреть все программы</h3>
+            <p class="mt-2 text-[13px] leading-relaxed text-white/65">43 программы ДПО и профессионального обучения в каталоге.</p>
+          </div>
+          <span class="mt-6 inline-flex items-center gap-2 text-[13px] font-bold text-[#8fb6ff]">Перейти в каталог <Icon name="arrow" size={16} /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему нам доверяют -->
+  <section class="section-y border-y border-[#e4e9f1] bg-white">
+    <div class="container-x grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Почему нам доверяют</span>
+        <h2 class="mt-2 font-display-a text-[clamp(1.75rem,3.2vw,2.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">
+          Обучение, которое засчитывают
+        </h2>
+        <p class="mt-4 max-w-[38ch] text-[14.5px] leading-relaxed text-[#5a6a80]">
+          Работаем с компаниями и частными специалистами: помогаем закрыть требования по охране труда и промышленной безопасности без остановки рабочих процессов.
+        </p>
+        <a class="mt-6 inline-flex items-center gap-2 text-[13px] font-bold text-[#1d4ed8] transition hover:gap-3" href="#lead">
+          Записаться на консультацию <Icon name="arrow" size={16} />
+        </a>
+      </div>
+
+      <div class="grid gap-3">
+        {guarantees.map((item) => (
+          <div class="flex gap-4 rounded-2xl border border-[#e4e9f1] bg-[#f8fafc] p-5">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-[#1d4ed8] shadow-sm"><Icon name={item.icon} size={21} /></span>
+            <div>
+              <h3 class="text-[15px] font-extrabold">{item.title}</h3>
+              <p class="mt-1 text-[13px] leading-relaxed text-[#5a6a80]">{item.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Как проходит обучение -->
+  <section id="process" class="section-y">
+    <div class="container-x">
+      <div class="max-w-[560px]">
+        <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Как проходит обучение</span>
+        <h2 class="mt-2 font-display-a text-[clamp(1.75rem,3.2vw,2.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">
+          От заявки до документа — четыре шага
+        </h2>
+      </div>
+
+      <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step) => (
+          <li class="relative rounded-2xl border border-[#e4e9f1] bg-white p-6">
+            <span class="font-display-a text-[13px] font-extrabold text-[#1d4ed8]">{step.number}</span>
+            <h3 class="mt-3 text-[16px] font-extrabold">{step.title}</h3>
+            <p class="mt-1.5 text-[13px] leading-relaxed text-[#5a6a80]">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Форма -->
+  <section id="contacts" class="section-y bg-[#0b1626] text-white">
+    <div class="container-x grid items-start gap-12 lg:grid-cols-[1fr_460px]">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#8fb6ff]">Консультация</span>
+        <h2 class="mt-2 max-w-[20ch] font-display-a text-[clamp(1.9rem,3.4vw,2.8rem)] font-extrabold leading-[1.08] tracking-[-0.02em]">
+          Подберём программу под вашу задачу
+        </h2>
+        <p class="mt-4 max-w-[44ch] text-[14.5px] leading-relaxed text-white/60">
+          Расскажите, кого и к какому сроку нужно обучить — предложим программу, формат и стоимость. Ответим в течение 10 минут в рабочее время.
+        </p>
+
+        <dl class="mt-9 grid gap-5 sm:grid-cols-2">
+          <div class="flex items-start gap-3">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#8fb6ff]"><Icon name="phone" size={19} /></span>
+            <div><dt class="text-[11px] uppercase tracking-[0.1em] text-white/40">Телефон</dt><dd class="mt-1 text-[14px] font-bold">{site.phone}</dd></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#8fb6ff]"><Icon name="mail" size={19} /></span>
+            <div><dt class="text-[11px] uppercase tracking-[0.1em] text-white/40">Почта</dt><dd class="mt-1 text-[14px] font-bold">{site.email}</dd></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#8fb6ff]"><Icon name="pin" size={19} /></span>
+            <div><dt class="text-[11px] uppercase tracking-[0.1em] text-white/40">Адрес</dt><dd class="mt-1 text-[14px] font-bold">{site.address}</dd></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#8fb6ff]"><Icon name="clock" size={19} /></span>
+            <div><dt class="text-[11px] uppercase tracking-[0.1em] text-white/40">График</dt><dd class="mt-1 text-[14px] font-bold">{site.schedule}</dd></div>
+          </div>
+        </dl>
+      </div>
+
+      <LeadForm source="Главная страница" />
+    </div>
+  </section>
+
+  <!-- Педагоги -->
+  <section id="staff" class="section-y border-b border-[#e4e9f1] bg-white">
+    <div class="container-x">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Педагогический состав</span>
+          <h2 class="mt-2 font-display-a text-[clamp(1.75rem,3.2vw,2.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">Учат практики</h2>
+        </div>
+        <p class="max-w-[38ch] text-[13px] leading-relaxed text-[#64748b]">Действующие эксперты: проверяют знания так, как это делают инспекторы и работодатели.</p>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {staff.map((member) => (
+          <article class="rounded-2xl border border-[#e4e9f1] bg-[#f8fafc] p-6">
+            <div class="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#1d4ed8] to-[#0f766e] text-[19px] font-extrabold text-white">{member.initials}</div>
+            <h3 class="mt-5 text-[15.5px] font-extrabold leading-snug">{member.name}</h3>
+            <p class="mt-1 text-[12.5px] font-semibold text-[#1d4ed8]">{member.role}</p>
+            <p class="mt-2 text-[12.5px] leading-relaxed text-[#64748b]">{member.note}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Документы -->
+  <section class="py-14">
+    <div class="container-x">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Документы</h2>
+        <a class="text-[12px] font-bold text-[#1d4ed8] transition hover:underline" href="/documents/">Все документы центра</a>
+      </div>
+      <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {documents.slice(0, 3).map((doc) => (
+          <a class="flex items-start gap-3 rounded-xl border border-[#e4e9f1] bg-white px-4 py-4 transition hover:border-[#b9cdf0]" href={doc.href}>
+            <Icon name="file" size={18} class="mt-0.5 shrink-0 text-[#1d4ed8]" />
+            <span>
+              <span class="block text-[13px] font-bold leading-snug">{doc.title}</span>
+              <span class="mt-0.5 block text-[11px] text-[#7c8ba1]">{doc.meta}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

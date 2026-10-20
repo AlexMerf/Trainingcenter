@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import Icon from '../../components/Icon.astro';
+import { vacancies, site } from '../../data/content';
+---
+
+<BaseLayout
+  title="Вакансии — учебный центр «Специалист»"
+  description="Открытые вакансии учебного центра «Специалист»: специалисты по дистанционному обучению, методисты и преподаватели. Москва, гибкий график."
+>
+  <PageHero
+    eyebrow="Работа в центре"
+    title="Вакансии"
+    description="Мы растём и ищем людей, которым интересно учить взрослых: методистов, преподавателей и специалистов по сопровождению обучения. Все вакансии — в Москве."
+    breadcrumbs={[{ label: 'Главная', href: '/' }, { label: 'Вакансии' }]}
+  >
+    <div class="mt-6 flex flex-wrap gap-2">
+      <span class="chip">Оформление по ТК РФ</span>
+      <span class="chip">Обучение за счёт центра</span>
+      <span class="chip">Гибридный формат</span>
+    </div>
+  </PageHero>
+
+  <section class="section-y">
+    <div class="container-x grid gap-4">
+      {vacancies.map((vacancy) => (
+        <article class="rounded-2xl border border-[#e4e9f1] bg-white p-6 sm:p-7">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h2 class="text-[19px] font-extrabold tracking-[-0.01em]">{vacancy.title}</h2>
+              <p class="mt-2 max-w-[62ch] text-[13.5px] leading-relaxed text-[#5a6a80]">{vacancy.description}</p>
+            </div>
+            <p class="whitespace-nowrap rounded-full bg-[#eef4ff] px-4 py-2 text-[14px] font-extrabold text-[#1d4ed8]">{vacancy.salary}</p>
+          </div>
+
+          <dl class="mt-5 flex flex-wrap gap-x-8 gap-y-2.5 border-y border-[#eef1f6] py-4 text-[12.5px]">
+            <div class="flex items-center gap-2"><dt class="text-[#7c8ba1]">Город:</dt><dd class="font-semibold">{vacancy.city}</dd></div>
+            <div class="flex items-center gap-2"><dt class="text-[#7c8ba1]">Опыт:</dt><dd class="font-semibold">{vacancy.experience}</dd></div>
+            <div class="flex items-center gap-2"><dt class="text-[#7c8ba1]">Образование:</dt><dd class="font-semibold">{vacancy.education}</dd></div>
+            <div class="flex items-center gap-2"><dt class="text-[#7c8ba1]">График:</dt><dd class="font-semibold">{vacancy.schedule}</dd></div>
+          </dl>
+
+          <div class="mt-5 flex flex-wrap items-start justify-between gap-4">
+            <ul class="space-y-2">
+              {vacancy.requirements.map((item) => (
+                <li class="flex items-start gap-2 text-[13px] text-[#3c4a5f]">
+                  <Icon name="check" size={16} class="mt-0.5 shrink-0 text-[#16a34a]" />{item}
+                </li>
+              ))}
+            </ul>
+            <a class="btn btn--primary" href="#lead">Откликнуться <Icon name="arrow" size={16} /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="lead" class="section-y border-t border-[#e4e9f1] bg-white">
+    <div class="container-x grid items-start gap-10 lg:grid-cols-[1fr_460px]">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1d4ed8]">Отклик на вакансию</span>
+        <h2 class="mt-2 max-w-[20ch] font-display-a text-[clamp(1.75rem,3.2vw,2.4rem)] font-extrabold leading-[1.1] tracking-[-0.02em]">
+          Расскажите о себе
+        </h2>
+        <p class="mt-4 max-w-[46ch] text-[14.5px] leading-relaxed text-[#52627a]">
+          Оставьте контакты и короткий комментарий — укажите вакансию и расскажите об опыте. Ответим в течение двух рабочих дней.
+        </p>
+        <div class="mt-6 flex items-center gap-3 rounded-2xl border border-[#e4e9f1] bg-[#f8fafc] p-4">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-[#1d4ed8]"><Icon name="mail" size={19} /></span>
+          <div class="text-[12.5px]">
+            <p class="font-bold">Резюме можно прислать на почту</p>
+            <a class="text-[#1d4ed8]" href={site.emailHref}>{site.email}</a>
+          </div>
+        </div>
+      </div>
+
+      <LeadForm
+        title="Откликнуться"
+        subtitle="Перезвоним и пригласим на знакомство."
+        source="Вакансии"
+        commentPlaceholder="Укажите вакансию и расскажите об опыте"
+      />
+    </div>
+  </section>
+</BaseLayout>

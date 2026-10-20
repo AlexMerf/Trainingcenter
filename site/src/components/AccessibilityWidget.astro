@@ -1,0 +1,138 @@
+---
+// Панель доступности: работает на чистом JS, общая для всех концептов.
+---
+
+<button class="a11y-launcher" type="button" data-a11y-open aria-haspopup="dialog" aria-controls="a11y-panel">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"></path>
+    <circle cx="12" cy="12" r="2.8"></circle>
+  </svg>
+  Версия для слабовидящих
+</button>
+
+<div class="a11y-overlay" data-a11y-backdrop></div>
+
+<aside class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="true" aria-labelledby="a11y-title" aria-hidden="true">
+  <button class="a11y-close" type="button" data-a11y-close aria-label="Закрыть параметры доступности">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6 6 18"></path>
+    </svg>
+  </button>
+
+  <div>
+    <h2 id="a11y-title">Параметры доступности</h2>
+    <p class="a11y-hint">Настройки сохраняются в браузере и действуют на всех страницах сайта.</p>
+  </div>
+
+  <div>
+    <span class="a11y-group-title">Изображения</span>
+    <div class="a11y-row">
+      <button class="a11y-option" type="button" data-a11y-group="images" data-value="show">Показать</button>
+      <button class="a11y-option" type="button" data-a11y-group="images" data-value="hide">Скрыть</button>
+    </div>
+  </div>
+
+  <div>
+    <span class="a11y-group-title">Размер шрифта</span>
+    <div class="a11y-row">
+      <button class="a11y-option" type="button" data-a11y-group="font" data-value="default">Обычный</button>
+      <button class="a11y-option" type="button" data-a11y-group="font" data-value="large">Крупный</button>
+      <button class="a11y-option" type="button" data-a11y-group="font" data-value="xlarge">Очень крупный</button>
+    </div>
+  </div>
+
+  <div>
+    <span class="a11y-group-title">Межбуквенное расстояние</span>
+    <div class="a11y-row">
+      <button class="a11y-option" type="button" data-a11y-group="spacing" data-value="default">Обычное</button>
+      <button class="a11y-option" type="button" data-a11y-group="spacing" data-value="wide">Увеличенное</button>
+    </div>
+  </div>
+
+  <div>
+    <span class="a11y-group-title">Цветовая схема</span>
+    <div class="a11y-row">
+      <button class="a11y-option" type="button" data-a11y-group="scheme" data-value="default">Обычная</button>
+      <button class="a11y-option" type="button" data-a11y-group="scheme" data-value="contrast">Контрастная</button>
+      <button class="a11y-option" type="button" data-a11y-group="scheme" data-value="invert">Инверсия</button>
+    </div>
+  </div>
+
+  <div class="a11y-actions">
+    <button class="a11y-reset" type="button" data-a11y-reset>Сбросить настройки</button>
+  </div>
+</aside>
+
+<script is:inline>
+  (function () {
+    var KEY = 'tc-a11y';
+    var defaults = { images: 'show', font: 'default', spacing: 'default', scheme: 'default' };
+    var state = Object.assign({}, defaults);
+    try {
+      state = Object.assign(state, JSON.parse(localStorage.getItem(KEY) || '{}'));
+    } catch (e) {}
+
+    var root = document.documentElement;
+    var panel = document.getElementById('a11y-panel');
+    var overlay = document.querySelector('[data-a11y-backdrop]');
+    var closeBtn = document.querySelector('[data-a11y-close]');
+
+    function apply() {
+      root.classList.toggle('a11y-hide-images', state.images === 'hide');
+      root.classList.remove('a11y-font-large', 'a11y-font-xlarge');
+      if (state.font === 'large') root.classList.add('a11y-font-large');
+      if (state.font === 'xlarge') root.classList.add('a11y-font-xlarge');
+      root.classList.toggle('a11y-spacing', state.spacing === 'wide');
+      root.classList.toggle('a11y-contrast', state.scheme === 'contrast');
+      root.classList.toggle('a11y-invert', state.scheme === 'invert');
+
+      document.querySelectorAll('[data-a11y-group]').forEach(function (btn) {
+        var active = state[btn.getAttribute('data-a11y-group')] === btn.getAttribute('data-value');
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+
+      try {
+        localStorage.setItem(KEY, JSON.stringify(state));
+      } catch (e) {}
+    }
+
+    function open() {
+      panel.classList.add('is-open');
+      overlay.classList.add('is-open');
+      panel.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function close() {
+      panel.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+      panel.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-a11y-open]').forEach(function (btn) {
+      btn.addEventListener('click', open);
+    });
+    document.querySelectorAll('[data-a11y-close]').forEach(function (btn) {
+      btn.addEventListener('click', close);
+    });
+    overlay.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) close();
+    });
+    document.querySelectorAll('[data-a11y-group]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state[btn.getAttribute('data-a11y-group')] = btn.getAttribute('data-value');
+        apply();
+      });
+    });
+    document.querySelector('[data-a11y-reset]').addEventListener('click', function () {
+      state = Object.assign({}, defaults);
+      apply();
+    });
+
+    apply();
+  })();
+</script>

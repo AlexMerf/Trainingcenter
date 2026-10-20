@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Icon from '../../components/Icon.astro';
+import { infoSections, site } from '../../data/content';
+---
+
+<BaseLayout
+  title="Сведения об образовательной организации — учебный центр «Специалист»"
+  description="Обязательные сведения об образовательной организации: основные данные, структура управления, лицензии, образование, финансово-хозяйственная деятельность и доступная среда."
+>
+  <PageHero
+    eyebrow="Обязательный раздел"
+    title="Сведения об образовательной организации"
+    description="Информация публикуется в соответствии с требованиями к официальному сайту образовательной организации. Демо-данные для портфолио-проекта."
+    breadcrumbs={[{ label: 'Главная', href: '/' }, { label: 'Сведения об образовательной организации' }]}
+  >
+    <div class="mt-6 flex flex-wrap gap-2">
+      {infoSections.map((section) => (
+        <a class="chip transition hover:border-[#9db3d6] hover:text-[#0c1729]" href={`#${section.id}`}>{section.title}</a>
+      ))}
+    </div>
+  </PageHero>
+
+  <section class="section-y">
+    <div class="container-x grid gap-4">
+      {infoSections.map((section) => (
+        <section id={section.id} class="scroll-mt-24 rounded-3xl border border-[#e4e9f1] bg-white p-6 sm:p-8">
+          <h2 class="font-display-a text-[clamp(1.3rem,2.2vw,1.7rem)] font-extrabold tracking-[-0.02em]">{section.title}</h2>
+          <dl class="mt-5 grid gap-x-8 gap-y-4 text-[13px] sm:grid-cols-2">
+            {section.items.map((item) => (
+              <div class="border-t border-[#eef1f6] pt-3">
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#7c8ba1]">{item.label}</dt>
+                <dd class="mt-1 font-semibold leading-relaxed">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ))}
+
+      <div class="rounded-3xl border border-[#e4e9f1] bg-[#f8fafc] p-6 sm:p-8">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="text-[15px] font-extrabold">Нужны документы или справка?</h2>
+            <p class="mt-1.5 max-w-[56ch] text-[13px] leading-relaxed text-[#64748b]">Напишите на {site.email} или позвоните — подготовим копии документов и справку об обучении.</p>
+          </div>
+          <a class="btn btn--secondary" href="/contacts/">Контакты <Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+
+      <p class="text-[11.5px] leading-relaxed text-[#94a3b8]">
+        Раздел носит демонстрационный характер. В рабочем проекте сведения заполняются из учредительных документов организации и обновляются при изменениях.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  source?: string;
+  id?: string;
+  note?: string;
+  commentPlaceholder?: string;
+}
+
+const {
+  title = 'Оставьте заявку',
+  subtitle = 'Перезвоним и поможем выбрать программу.',
+  source = '',
+  id = 'lead',
+  note = 'Демо-форма портфолио-проекта: отправка заявок не подключена.',
+  commentPlaceholder = 'Кого и в какие сроки нужно обучить?',
+} = Astro.props;
+---
+
+<form id={id} class="rounded-3xl border border-[#e4e9f1] bg-white p-6 shadow-[0_30px_70px_-40px_rgba(15,23,42,.35)] sm:p-7" data-demo-form>
+  <h2 class="text-[19px] font-extrabold tracking-[-0.01em]">{title}</h2>
+  <p class="mt-1.5 text-[12.5px] leading-relaxed text-[#64748b]">{subtitle}</p>
+
+  <input type="hidden" name="source" value={source} />
+
+  <div class="mt-5 space-y-3">
+    <label class="block">
+      <span class="sr-only">Ваше имя</span>
+      <input class="field" type="text" name="name" placeholder="Ваше имя" autocomplete="name" required minlength="2" />
+    </label>
+    <label class="block">
+      <span class="sr-only">Телефон</span>
+      <input class="field" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required />
+    </label>
+    <label class="block">
+      <span class="sr-only">Комментарий</span>
+      <textarea class="field min-h-[84px] resize-y" name="comment" rows="3" placeholder={commentPlaceholder}></textarea>
+    </label>
+  </div>
+
+  <label class="mt-4 flex items-start gap-2.5 text-[11px] leading-relaxed text-[#64748b]">
+    <input class="mt-0.5 h-4 w-4 shrink-0 accent-[#1d4ed8]" type="checkbox" required />
+    <span>Согласен с <a class="font-semibold text-[#1d4ed8] underline underline-offset-2" href="/politic/">политикой обработки персональных данных</a></span>
+  </label>
+
+  <button class="btn btn--primary btn--block mt-5" type="submit">Получить консультацию</button>
+
+  <p class="mt-3 rounded-xl bg-[#ecfdf3] px-4 py-3 text-[12.5px] font-semibold text-[#15803d]" data-form-status hidden>
+    Спасибо! Это демонстрационная форма — данные никуда не отправляются.
+  </p>
+  <p class="mt-3 text-[10.5px] leading-relaxed text-[#94a3b8]">{note}</p>
+</form>

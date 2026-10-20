@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+import { site, nav } from '../data/content';
+---
+
+<footer class="bg-[#081120] text-[#cbd5e1]">
+  <div class="container-x grid gap-10 py-14 md:grid-cols-[1.2fr_1fr_1fr]">
+    <div>
+      <a href="/" class="flex items-center gap-3 text-white">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#1d4ed8] text-lg font-extrabold">С</span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-extrabold">Специалист</span>
+          <span class="block text-[10.5px] font-medium uppercase tracking-[0.14em] text-white/40">учебный центр</span>
+        </span>
+      </a>
+      <p class="mt-4 max-w-[34ch] text-[12.5px] leading-relaxed text-white/50">
+        Дополнительное профессиональное образование с {site.founded} года. Охрана труда, промышленная безопасность, экология.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <a class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-2 text-[11px] font-semibold text-white/70 transition hover:border-white/40 hover:text-white" href="/documents/"><Icon name="file" size={14} /> Документы</a>
+        <a class="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-2 text-[11px] font-semibold text-white/70 transition hover:border-white/40 hover:text-white" href="/politic/"><Icon name="shield" size={14} /> Политика ПД</a>
+      </div>
+    </div>
+
+    <nav aria-label="Навигация в подвале" class="flex flex-col gap-2.5">
+      {nav.map((item) => <a class="text-[13px] font-semibold text-white/65 transition hover:text-white" href={item.href}>{item.label}</a>)}
+    </nav>
+
+    <div class="flex flex-col gap-2.5 text-[13px]">
+      <a class="font-bold text-white transition hover:text-[#8fb6ff]" href={site.phoneHref}>{site.phone}</a>
+      <a class="text-white/65 transition hover:text-white" href={site.emailHref}>{site.email}</a>
+      <p class="text-white/50">{site.address}</p>
+      <p class="text-white/50">{site.schedule}</p>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-x flex flex-wrap items-center justify-between gap-3 py-5 text-[11px] text-white/40">
+      <p>© 2026 {site.legal} · ИНН {site.inn} · ОГРН {site.ogrn}</p>
+      <p>Портфолио-демо · учебный центр «Специалист»</p>
+    </div>
+  </div>
+</footer>
