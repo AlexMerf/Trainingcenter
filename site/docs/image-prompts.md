@@ -139,3 +139,21 @@ in the center-left for a headline, no text, no letters, modern corporate brand s
 - `og-cover.png` → `site/public/images/og-cover.jpg` (1200×630, подключена в Open Graph и Twitter Card).
 
 Исходники PNG остаются в `incoming/` и не коммитятся.
+## Фавикон и знак
+
+Знак уже нарисован кодом: белая «С» на синем градиенте, набор размеров и иконок
+генерирует `site/tools/make-favicons.py` (см. `site/README.md`). Для фавикона
+векторный знак надёжнее ИИ-картинки: он остаётся чётким в 16 px и на retina.
+
+Если нужен альтернативный ИИ-вариант знака — сгенерируй и покажи, интегрируем:
+
+```text
+Minimal app icon for an education center: bold white monogram letter C on a deep blue
+rounded square with a smooth vertical gradient, flat vector style, centered, high contrast,
+simple geometric shapes, no text besides the monogram, no shadows, no gradients other than
+the background, clean edges, readable at 16x16, 1:1
+```
+
+Для «живого» логотипа с иллюстрацией (книга, шапочка, диплом) добавь в промт
+описание символа, но помни: мелкие детали в 16 px превращаются в кашу —
+для вкладки браузера лучше отдельный упрощённый знак.

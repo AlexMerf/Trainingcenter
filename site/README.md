@@ -58,6 +58,22 @@ site/
 - В демо-макете портреты — вымышленные люди. При запуске реального сайта их нужно
   заменить на настоящих сотрудников (с согласием на публикацию).
 
+## Фавиконы и иконки
+
+Единый знак — белая «С» на синем градиенте, он же используется в шапке и подвале.
+`tools/make-favicons.py` генерирует полный набор в `site/public`:
+
+- `favicon.svg` — векторный, для современных браузеров;
+- `favicon.ico` — 16/32/48/64 для старых браузеров;
+- `favicon-16.png`, `favicon-32.png`, `favicon-48.png`;
+- `apple-touch-icon.png` (180×180);
+- `android-chrome-192x192.png`, `android-chrome-512x512.png`;
+- `maskable-512.png` — с безопасной зоной для Android;
+- `site.webmanifest` — манифест PWA (цвета, иконки, `start_url`).
+
+Превью всех размеров: [`shots/favicon-preview.png`](../shots/favicon-preview.png).
+Перегенерировать: `python tools/make-favicons.py` (из папки `site/`).
+
 
 ## Страницы
 
