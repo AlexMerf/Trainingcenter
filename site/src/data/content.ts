@@ -16,6 +16,7 @@ export interface Program {
   short: string;
   description: string;
   icon: string;
+  image: string;
   hours: string;
   duration: string;
   format: string;
@@ -50,6 +51,7 @@ export interface StaffMember {
   name: string;
   role: string;
   note: string;
+  photo: string;
   initials: string;
 }
 
@@ -142,18 +144,21 @@ export const staff: StaffMember[] = [
     name: 'Снежкин Владимир Александрович',
     role: 'Генеральный директор',
     note: '20 лет в дополнительном образовании',
+    photo: '/images/staff/director.webp',
     initials: 'ВС',
   },
   {
     name: 'Кузнецова Ирина Павловна',
     role: 'Методист, эксперт по охране труда',
     note: 'Автор 30+ корпоративных программ',
+    photo: '/images/staff/methodist.webp',
     initials: 'ИК',
   },
   {
     name: 'Морозов Алексей Сергеевич',
     role: 'Преподаватель, инженер-энергетик',
     note: 'Эксперт по электробезопасности',
+    photo: '/images/staff/teacher.webp',
     initials: 'АМ',
   },
 ];
@@ -167,6 +172,7 @@ export const programs: Program[] = [
     description:
       'Программа для руководителей и специалистов, отвечающих за безопасность на производстве. Разбираем актуальные требования, порядок инструктажей, оценку рисков и документацию, которую проверяют инспекторы.',
     icon: 'shield',
+    image: '/images/programs/ohrana-truda.webp',
     hours: '40 часов',
     duration: '2 недели',
     format: 'Дистанционно',
@@ -195,6 +201,7 @@ export const programs: Program[] = [
     description:
       'Пожарно-технический минимум для руководителей и ответственных лиц. Учим читать требования, организовывать эвакуацию, вести документацию и готовиться к проверкам МЧС.',
     icon: 'flame',
+    image: '/images/programs/pozharnaya-bezopasnost.webp',
     hours: '24 часа',
     duration: '1 неделя',
     format: 'Дистанционно',
@@ -219,6 +226,7 @@ export const programs: Program[] = [
     description:
       'Подготовка электротехнического и электротехнологического персонала. Разбираем устройство электроустановок, защитные средства и безопасные приёмы работ, готовим к аттестации на группы до IV.',
     icon: 'zap',
+    image: '/images/programs/elektrobezopasnost.webp',
     hours: '72 часа',
     duration: '3 недели',
     format: 'Дистанционно',
@@ -243,6 +251,7 @@ export const programs: Program[] = [
     description:
       'Короткий практический курс для сотрудников организаций. Отрабатываем алгоритмы действий в типовых ситуациях: остановка кровотечения, сердечно-лёгочная реанимация, помощь при ожогах и переломах.',
     icon: 'heart',
+    image: '/images/programs/pervaya-pomoshch.webp',
     hours: '16 часов',
     duration: '3 дня',
     format: 'Дистанционно',
@@ -267,6 +276,7 @@ export const programs: Program[] = [
     description:
       'Для специалистов и руководителей, отвечающих за экологическую безопасность. Разбираем отчётность, обращение с отходами, нормативы и подготовку к проверкам надзорных органов.',
     icon: 'leaf',
+    image: '/images/programs/ekologiya.webp',
     hours: '72 часа',
     duration: '3 недели',
     format: 'Дистанционно',
@@ -291,6 +301,7 @@ export const programs: Program[] = [
     description:
       'Программа для руководителей и специалистов ОПО. Разбираем требования промышленной безопасности, идентификацию опасных объектов, производственный контроль и готовность к аварийным ситуациям.',
     icon: 'factory',
+    image: '/images/programs/promyshlennaya-bezopasnost.webp',
     hours: '112 часов',
     duration: '5 недель',
     format: 'Дистанционно',
@@ -315,6 +326,7 @@ export const programs: Program[] = [
     description:
       'Рабочие специальности для взрослых: без опыта, с трудоустройством или для развития внутри действующей компании. Теория — онлайн, практика — на оборудовании партнёрской площадки.',
     icon: 'cap',
+    image: '/images/programs/obuchenie-professiyam.webp',
     hours: 'от 3 месяцев',
     duration: 'от 12 недель',
     format: 'Онлайн + практика',

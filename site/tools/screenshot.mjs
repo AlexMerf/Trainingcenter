@@ -154,6 +154,20 @@ async function main() {
       await loaded;
       await sleep(400);
       await cdp.send('Runtime.evaluate', { expression: 'document.fonts.ready', awaitPromise: true });
+      // Полноэкранный снимок не прокручивает страницу, поэтому ленивые картинки
+      // нужно включить принудительно и дождаться их загрузки.
+      await cdp.send('Runtime.evaluate', {
+        expression: `(() => {
+          const images = Array.from(document.images);
+          images.forEach((img) => { img.loading = 'eager'; });
+          return Promise.all(images.map((img) => new Promise((resolve) => {
+            if (img.complete && img.naturalWidth > 0) return resolve(true);
+            img.addEventListener('load', () => resolve(true), { once: true });
+            img.addEventListener('error', () => resolve(false), { once: true });
+          })));
+        })()`,
+        awaitPromise: true,
+      });
       // В полноэкранных снимках фиксированная кнопка доступности попадает в случайное место.
       await cdp.send('Runtime.evaluate', {
         expression:

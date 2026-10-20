@@ -62,6 +62,9 @@ const jsonLd = {
   <section class="section-y">
     <div class="container-x grid items-start gap-10 lg:grid-cols-[1fr_360px]">
       <div>
+        <div class="mb-7 overflow-hidden rounded-2xl border border-[#e4e9f1]">
+          <img src={program.image} alt={`Программа «${program.title}»`} width="1200" height="800" class="h-[260px] w-full object-cover sm:h-[340px]" />
+        </div>
         <h2 class="font-display-a text-[clamp(1.5rem,2.6vw,2rem)] font-extrabold tracking-[-0.02em]">О программе</h2>
         <p class="mt-3 max-w-[68ch] text-[14.5px] leading-relaxed text-[#52627a]">{program.description}</p>
 

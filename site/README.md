@@ -31,18 +31,33 @@ pnpm preview    # локальный просмотр собранного са�
 
 ```
 site/
-├── public/               # favicon, изображения
+├── public/               # favicon, изображения (hero, программы, портреты, OG-обложка)
 ├── src/
 │   ├── components/       # SiteHeader, SiteFooter, Breadcrumbs, PageHero, DirectionCard, LeadForm, Icon, AccessibilityWidget
 │   ├── data/content.ts   # ЕДИНЫЙ источник контента: программы, вакансии, документы, контакты
 │   ├── layouts/BaseLayout.astro
 │   ├── pages/            # маршруты (в том числе динамические карточки программ)
 │   └── styles/global.css # токены, компонентные классы, стили панели доступности
+├── docs/
+│   └── image-prompts.md  # промты для генерации изображений
 ├── tools/
+│   ├── process-images.py # обработка исходников картинок → webp в public/images
+│   ├── inspect-incoming.py # проверка входящих картинок и контактный лист
 │   ├── screenshot.mjs    # полноэкранные скриншоты через Chrome DevTools Protocol
-│   └── trim-shots.py     # (вспомогательный) обрезка скриншотов
-└── shots/                # скриншоты страниц (см. корневой shots/)
+│   └── smoke.mjs         # smoke-тест интерактива (панель доступности, формы, меню)
+└── README.md
 ```
+
+## Изображения
+
+- Фотографии сгенерированы с помощью ИИ специально для этого демо-проекта
+  (промты — в [`docs/image-prompts.md`](docs/image-prompts.md)).
+- Исходники лежат в `incoming/` в корне репозитория и не коммитятся (`.gitignore`).
+- `tools/process-images.py` обрезает и оптимизирует их в `site/public/images/`:
+  hero, 7 картинок программ, 3 портрета педагогов и OG-обложка 1200×630.
+- В демо-макете портреты — вымышленные люди. При запуске реального сайта их нужно
+  заменить на настоящих сотрудников (с согласием на публикацию).
+
 
 ## Страницы
 

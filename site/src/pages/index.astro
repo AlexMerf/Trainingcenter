@@ -237,11 +237,13 @@ const jsonLd = {
 
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {staff.map((member) => (
-          <article class="rounded-2xl border border-[#e4e9f1] bg-[#f8fafc] p-6">
-            <div class="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#1d4ed8] to-[#0f766e] text-[19px] font-extrabold text-white">{member.initials}</div>
-            <h3 class="mt-5 text-[15.5px] font-extrabold leading-snug">{member.name}</h3>
-            <p class="mt-1 text-[12.5px] font-semibold text-[#1d4ed8]">{member.role}</p>
-            <p class="mt-2 text-[12.5px] leading-relaxed text-[#64748b]">{member.note}</p>
+          <article class="overflow-hidden rounded-2xl border border-[#e4e9f1] bg-white">
+            <img src={member.photo} alt={member.name} width="800" height="800" loading="lazy" class="h-64 w-full object-cover object-top" />
+            <div class="p-6">
+              <h3 class="text-[15.5px] font-extrabold leading-snug">{member.name}</h3>
+              <p class="mt-1 text-[12.5px] font-semibold text-[#1d4ed8]">{member.role}</p>
+              <p class="mt-2 text-[12.5px] leading-relaxed text-[#64748b]">{member.note}</p>
+            </div>
           </article>
         ))}
       </div>

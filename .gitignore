@@ -5,3 +5,6 @@ desktop.ini
 
 # pnpm store (если создаётся в корне)
 .pnpm-store/
+
+# исходники сгенерированных картинок
+incoming/
