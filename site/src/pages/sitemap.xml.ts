@@ -12,10 +12,12 @@ const pages = [
   '/politic/',
 ];
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = ({ site: astroSite }) => {
+  const base = astroSite ?? new URL(site.url);
+
   const urls = pages
     .map(
-      (path) => `  <url>\n    <loc>${new URL(path, site.url).href}</loc>\n    <changefreq>monthly</changefreq>\n  </url>`,
+      (path) => `  <url>\n    <loc>${new URL(path, base).href}</loc>\n    <changefreq>monthly</changefreq>\n  </url>`,
     )
     .join('\n');
 

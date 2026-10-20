@@ -6,14 +6,15 @@ import LeadForm from '../components/LeadForm.astro';
 import { site, stats, programs, guarantees, steps, staff, facts, documents } from '../data/content';
 
 const featured = programs.slice(0, 6);
+const siteOrigin = Astro.site?.origin ?? site.url;
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'EducationalOrganization',
   name: site.name,
   alternateName: site.legal,
-  url: site.url,
-  logo: `${site.url}/android-chrome-512x512.png`,
+  url: siteOrigin,
+  logo: `${siteOrigin}/android-chrome-512x512.png`,
   telephone: site.phone,
   email: site.email,
   foundingDate: String(site.founded),

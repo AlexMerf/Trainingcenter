@@ -13,6 +13,7 @@ export const getStaticPaths = (() =>
   }))) satisfies GetStaticPaths;
 
 const { program } = Astro.props;
+const siteOrigin = Astro.site?.origin ?? site.url;
 
 const meta = [
   { label: 'Длительность', value: program.hours },
@@ -29,7 +30,7 @@ const jsonLd = {
   provider: {
     '@type': 'EducationalOrganization',
     name: site.name,
-    url: site.url,
+    url: siteOrigin,
   },
 };
 ---
